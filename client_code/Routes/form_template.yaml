@@ -1,0 +1,18 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: DataGrid
+  properties:
+    columns:
+    - {id: OXBMXU, title: Column 1, data_key: column_1}
+    - {id: JAKESV, title: Column 2, data_key: column_2}
+    - {id: LUVCJM, title: Column 3, data_key: column_3}
+  name: data_grid_routes
+  layout_properties: {grid_position: 'YDXYZE,QBBMJZ'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: Routes.RowTemplate3}
+    name: repeating_panel_routes
+    layout_properties: {}
+is_package: true

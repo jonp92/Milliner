@@ -107,6 +107,9 @@ db_schema:
     - name: signed_up
       admin_ui: {width: 200}
       type: datetime
+    - name: remembered_logins
+      type: simpleObject
+      admin_ui: {order: 7, width: 200}
   settings:
     title: Settings
     client: search
@@ -137,3 +140,11 @@ db_schema:
     - name: createdAt
       admin_ui: {}
       type: string
+  routes:
+    client: none
+    server: full
+    columns:
+    - name: id
+      admin_ui: {order: 0, width: 200}
+      type: number
+    title: Routes

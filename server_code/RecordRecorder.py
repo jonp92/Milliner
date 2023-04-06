@@ -56,3 +56,14 @@ def record_users(url, api_key):
       user_row.update(id=user['id'], name=user['name'], createdAt=user['createdAt'])
     else:
       app_tables.hs_users.add_row(id=user['id'], name=user['name'], createdAt=user['createdAt'])
+
+@anvil.server.callable
+@anvil.server.background_task
+def record_routes(url, api_key):
+  data=anvil.server.call('get_routes', url, api_key)
+  for route in data['routes']:
+    route_row = app_tables.routes.get(id=route['id'])
+    if route_row:
+      route_row.update(id=route['id'], name=route['name'], createdAt=route['createdAt'])
+    else:
+      app_tables.routes.add_row(id=route['id'], machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])

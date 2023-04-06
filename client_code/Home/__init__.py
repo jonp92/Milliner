@@ -35,7 +35,7 @@ class Home(HomeTemplate):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(anvil.server.call('test_api_key', self.url, self.api_key))
+    alert(anvil.server.call('record_routes', self.url, self.api_key))
 
   def link_machines_click(self, **event_args):
     """This method is called when the link is clicked"""
