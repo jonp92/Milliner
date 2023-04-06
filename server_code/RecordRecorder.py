@@ -66,4 +66,4 @@ def record_routes(url, api_key):
     if route_row:
       route_row.update(id=int(route['id']), name=route['name'], createdAt=route['createdAt'])
     else:
-      app_tables.routes.add_row(id=route['id'], machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
+      app_tables.routes.add_row(id=int(route['id']), machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])

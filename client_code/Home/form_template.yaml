@@ -90,6 +90,7 @@ components:
       italic: false, background: '', bold: false, underline: false, icon: 'fa:map-signs'}
     name: link_routes
     layout_properties: {}
+    event_bindings: {click: link_routes_click}
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Settings, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,

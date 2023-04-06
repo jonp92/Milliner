@@ -12,3 +12,6 @@ def get_machine_table():
 def get_hs_users_table():
   return app_tables.hs_users.client_writable_cascade()
 
+@anvil.server.callable
+def get_routes_tables():
+  return app_tables.routes.client_writable_cascade()

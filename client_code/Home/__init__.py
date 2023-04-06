@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Machines import Machines
 from ..Users import Users
+from ..Routes import Routes
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
@@ -58,6 +59,12 @@ class Home(HomeTemplate):
   def link_home_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('Home')
+
+  def link_routes_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.column_panel_home.clear()
+    self.column_panel_home.add_component(Routes())
+
 
 
 

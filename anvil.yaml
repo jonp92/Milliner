@@ -108,8 +108,8 @@ db_schema:
       admin_ui: {width: 200}
       type: datetime
     - name: remembered_logins
+      admin_ui: {width: 200}
       type: simpleObject
-      admin_ui: {order: 7, width: 200}
   settings:
     title: Settings
     client: search
@@ -141,10 +141,22 @@ db_schema:
       admin_ui: {}
       type: string
   routes:
+    title: Routes
     client: none
     server: full
     columns:
     - name: id
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: number
-    title: Routes
+    - name: prefix
+      admin_ui: {}
+      type: string
+    - name: machineName
+      admin_ui: {}
+      type: string
+    - name: machineIPs
+      admin_ui: {}
+      type: simpleObject
+    - name: enabled
+      admin_ui: {}
+      type: bool

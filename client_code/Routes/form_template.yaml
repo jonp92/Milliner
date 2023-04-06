@@ -4,10 +4,27 @@ container:
 components:
 - type: DataGrid
   properties:
+    role: null
     columns:
-    - {id: OXBMXU, title: Column 1, data_key: column_1}
-    - {id: JAKESV, title: Column 2, data_key: column_2}
-    - {id: LUVCJM, title: Column 3, data_key: column_3}
+    - {id: OJSHAX, title: Id, data_key: id, $$hashKey: 'object:1718', width: '50'}
+    - {id: WJJKDO, title: Prefix, data_key: prefix, $$hashKey: 'object:1719', width: '175',
+      expand: true}
+    - {id: RQPBKG, title: MachineName, data_key: machineName, $$hashKey: 'object:1720',
+      width: '125', expand: true}
+    - {id: DEYOGZ, title: MachineIPs, data_key: machineIPs, $$hashKey: 'object:1721',
+      width: '175', expand: true}
+    - {id: CHTJAW, title: Enabled, data_key: enabled, $$hashKey: 'object:1722', width: '90'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
   name: data_grid_routes
   layout_properties: {grid_position: 'YDXYZE,QBBMJZ'}
   components:
