@@ -47,4 +47,5 @@ class Settings(SettingsTemplate):
   def button_add_user_click(self, **event_args):
     """This method is called when the button is clicked"""
     alert(AddUser(), buttons=[], large=True)
+    
 

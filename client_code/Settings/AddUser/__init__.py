@@ -17,5 +17,5 @@ class AddUser(AddUserTemplate):
     """This method is called when the button is clicked"""
     anvil.server.call('add_appuser', self.text_box_email.text, self.check_box_enabled.checked, True, self.text_box_password.text)
     Notification(f'User: {self.text_box_email.text} added successfully').show()
-    self.parent.raise_event('x-refresh')
+    self.raise_event('x-close-alert', value=True)
 
