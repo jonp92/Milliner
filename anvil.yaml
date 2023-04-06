@@ -57,5 +57,8 @@ db_schema:
   api_keys:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: api_key
+      admin_ui: {order: 0, width: 200}
+      type: string
     title: api_keys
