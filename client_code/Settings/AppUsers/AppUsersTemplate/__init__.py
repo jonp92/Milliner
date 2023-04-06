@@ -24,11 +24,23 @@ class AppUsersTemplate(AppUsersTemplateTemplate):
 
   def button_save_user_edit_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('update_app_user', self.text_box_email.text, self.item, self.text_box_password.text)
+    print(self.text_box_password.text)
+    if self.text_box_password.text == '':
+      anvil.server.call('update_app_user', self.text_box_email.text, self.item, False, None)
+    else:
+      anvil.server.call('update_app_user', self.text_box_email.text, self.item, True, self.text_box_password.text)
     self.parent.raise_event('x-refresh')
-    self.refresh_data_bindings()
     self.data_row_panel_view.visible = True
     self.data_row_panel_edit.visible = False
+
+  def button_delete_user_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    delete_user = alert('Are you SURE you want to DELETE ' + self.item['email'], buttons=[('Yes', True), ('No', False)])
+    if delete_user:
+      with Notification('Deleted User ' + self.item['email'], style='info'):
+        self.item.delete()
+        self.parent.raise_event('x-refresh')
+
 
 
 

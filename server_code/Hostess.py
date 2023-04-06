@@ -30,16 +30,19 @@ def get_app_users_table():
   return app_tables.users.client_writable_cascade()
 
 @anvil.server.callable
-def update_app_user(email, item, password):
-  import bcrypt
-  # converting password to array of bytes
-  bytes = password.encode('utf-8')
-  # generating the salt
-  salt = bcrypt.gensalt()
-  # Hashing the password
-  password_hash = bcrypt.hashpw(bytes, salt)
+def update_app_user(email, item, pw_update, password):
   appuser_row = app_tables.users.get_by_id(item.get_id())
-  appuser_row.update(email=email)
+  if pw_update == False:
+    appuser_row.update(email=email)
+  elif pw_update == True:
+    import bcrypt
+    # converting password to array of bytes
+    bytes = password.encode('utf-8')
+    # generating the salt
+    salt = bcrypt.gensalt()
+    # Hashing the password
+    password_hash = bcrypt.hashpw(bytes, salt)
+    appuser_row.update(email=email, password_hash=password_hash.decode('utf-8'))
 
 @anvil.server.callable
 def add_appuser(email, enabled, confirmed_email, password):

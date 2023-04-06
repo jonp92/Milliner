@@ -58,4 +58,54 @@ components:
     name: repeating_panel_machines
     layout_properties: {}
     data_bindings: []
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {slot: footer}
+    components:
+    - type: Button
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Add Machine, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:desktop'}
+      name: button_add_machine
+      layout_properties: {row: UCOPAM, width_xs: 3, col_xs: 0, width: 221.59375}
+      event_bindings: {click: button_add_machine_click}
+    - type: ColumnPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"RANRWU":10,"ZZSNKO":60,"GEFRIH":9,"QCKWKY":30,"EANZCX":21}',
+        spacing_below: small, background: ''}
+      name: column_panel_add_machine
+      layout_properties: {row: ETSIAM, width_xs: 12, col_xs: 0, width: 640.9375}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'NodeKey:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {grid_position: 'CXZNMP,RANRWU'}
+      - type: TextBox
+        properties: {}
+        name: text_box_nodekey
+        layout_properties: {grid_position: 'CXZNMP,ZZSNKO'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'User:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_user
+        layout_properties: {grid_position: 'IVFPJK,GEFRIH'}
+      - type: DropDown
+        properties: {}
+        name: drop_down_1
+        layout_properties: {grid_position: 'IVFPJK,EANZCX'}
+        event_bindings: {change: drop_down_1_change}
+      - type: Button
+        properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:floppy-o'}
+        name: button_save_new_machine
+        layout_properties: {grid_position: 'IVFPJK,QCKWKY'}
 is_package: true

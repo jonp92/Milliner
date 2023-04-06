@@ -6,13 +6,20 @@ components:
   properties:
     role: null
     columns:
-    - {id: EWLQOA, title: Email, data_key: email, $$hashKey: 'object:224148'}
-    - {id: NJORLQ, title: Password, data_key: password, $$hashKey: 'object:224164'}
-    - {id: XLHPBD, title: Enabled, data_key: enabled, $$hashKey: 'object:224149'}
-    - {id: BJTNIH, title: Last Login, data_key: last_login, $$hashKey: 'object:224150'}
-    - {id: ADBALN, title: Password Failures, data_key: n_password_failures, $$hashKey: 'object:224152'}
-    - {id: PZYHXE, title: Confirmed Email, data_key: confirmed_email, $$hashKey: 'object:224153'}
-    - {id: QFPEZE, title: '', data_key: '', $$hashKey: 'object:230262'}
+    - {id: XLHPBD, title: Enabled, data_key: enabled, $$hashKey: 'object:224149',
+      width: '80'}
+    - {id: EWLQOA, title: Email, data_key: email, $$hashKey: 'object:224148', width: '175',
+      expand: true}
+    - {id: NJORLQ, title: Password, data_key: password, $$hashKey: 'object:224164',
+      width: '175', expand: true}
+    - {id: BJTNIH, title: Last Login, data_key: last_login, $$hashKey: 'object:224150',
+      width: '175', expand: true}
+    - {id: ADBALN, title: Password Failures, data_key: n_password_failures, $$hashKey: 'object:224152',
+      width: 100, expand: false}
+    - {id: PZYHXE, title: Confirmed Email, data_key: confirmed_email, $$hashKey: 'object:224153',
+      width: 90, expand: false}
+    - {id: QFPEZE, title: '', data_key: '', $$hashKey: 'object:230262', width: '75',
+      expand: false}
     auto_header: true
     tooltip: ''
     border: ''
@@ -25,7 +32,7 @@ components:
     spacing_below: small
     background: ''
   name: data_grid_appusers
-  layout_properties: {grid_position: 'GDBZFO,KYGIKR'}
+  layout_properties: {grid_position: 'GDBZFO,EBQUII'}
   components:
   - type: RepeatingPanel
     properties: {role: null, tooltip: '', border: '', foreground: '', items: null,

@@ -11,13 +11,12 @@ class AddUser(AddUserTemplate):
     # Set Form properties and Data Bindings.
     self.item['email'] = ''
     self.item['password'] = ''
-    #self.item['enabled'] = True
+    self.item['enabled'] = ''
     self.init_components(**properties)
+    self.check_box_enabled.checked = True
+    self.item['enabled'] = True
+    
 
     # Any code you write here will run before the form opens.
 
-  def button_save_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    Notification(f'User: {self.text_box_email.text} added successfully').show()
-    self.raise_event('x-close-alert', value=True)
 
