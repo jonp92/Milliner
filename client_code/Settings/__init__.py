@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .AddUser import AddUser
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
@@ -42,3 +43,8 @@ class Settings(SettingsTemplate):
     else:
       status = f'Unable to connect - {status_returned}. Please check your API key, URL, and CORS headers'
     alert(status, title="API Test Results")
+
+  def button_add_user_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    alert(AddUser(), buttons=[], large=True)
+

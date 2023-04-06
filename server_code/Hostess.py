@@ -42,7 +42,7 @@ def update_app_user(email, item, password):
   appuser_row.update(email=email)
 
 @anvil.server.callable
-def edit_user(id, first_name, last_name, email, role, enabled, confirmed_email, password):
+def add_appuser(email, enabled, confirmed_email, password):
   import bcrypt
   # converting password to array of bytes
   bytes = password.encode('utf-8')
@@ -50,17 +50,5 @@ def edit_user(id, first_name, last_name, email, role, enabled, confirmed_email, 
   salt = bcrypt.gensalt()
   # Hashing the password
   password_hash = bcrypt.hashpw(bytes, salt)
-  user_row = app_tables.users.get_by_id(id)
-  user_row.update(first_name=first_name, last_name = last_name, email = email, role = role, enabled = enabled, confirmed_email = confirmed_email, password_hash = password_hash.decode('utf-8'))
-
-@anvil.server.callable
-def add_user(first_name, last_name, email, role, enabled, confirmed_email, password):
-  import bcrypt
-  # converting password to array of bytes
-  bytes = password.encode('utf-8')
-  # generating the salt
-  salt = bcrypt.gensalt()
-  # Hashing the password
-  password_hash = bcrypt.hashpw(bytes, salt)
-  app_tables.users.add_row(first_name=first_name, last_name=last_name, email=email, role=role, enabled=enabled, confirmed_email=confirmed_email, password_hash=password_hash.decode('utf-8'))
+  app_tables.users.add_row(email=email, enabled=enabled, confirmed_email=confirmed_email, password_hash=password_hash.decode('utf-8'))
   

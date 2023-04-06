@@ -105,5 +105,18 @@ components:
         layout_properties: {}
         data_bindings:
         - {property: items, code: self.users}
+      - type: GridPanel
+        properties: {}
+        name: grid_panel_footer_container
+        layout_properties: {slot: footer}
+        components:
+        - type: Button
+          properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
+            foreground: '', visible: true, text: Add User, font_size: null, font: '',
+            spacing_above: none, icon_align: left, spacing_below: none, italic: false,
+            background: '', bold: false, underline: false, icon: 'fa:user'}
+          name: button_add_user
+          layout_properties: {row: UZYXIY, width_xs: 3, col_xs: 0, width: 184.34375}
+          event_bindings: {click: button_add_user_click}
       data_bindings: []
 is_package: true
