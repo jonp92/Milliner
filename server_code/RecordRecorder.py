@@ -62,8 +62,8 @@ def record_users(url, api_key):
 def record_routes(url, api_key):
   data=anvil.server.call('get_routes', url, api_key)
   for route in data['routes']:
-    route_row = app_tables.routes.get(id=route['id'])
+    route_row = app_tables.routes.get(id=int(route['id']))
     if route_row:
-      route_row.update(id=route['id'], name=route['name'], createdAt=route['createdAt'])
+      route_row.update(id=int(route['id']), name=route['name'], createdAt=route['createdAt'])
     else:
       app_tables.routes.add_row(id=route['id'], machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
