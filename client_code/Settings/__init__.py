@@ -5,12 +5,11 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .AddUser import AddUser
+from .AppUsers import AppUsers
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     self.users = anvil.server.call('get_app_users_table').search()
-    self.repeating_panel_app_users.set_event_handler('x-refresh', self.refresh_data)
     if app_tables.settings.get() == None:
       self.item['url'] = ''
       self.item['api_key'] = ''
@@ -24,9 +23,6 @@ class Settings(SettingsTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def refresh_data(self, **event_args):
-    self.repeating_panel_app_users.items = anvil.server.call('get_app_users_table').search()
-    
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
     if app_tables.settings.get() == None:
@@ -45,11 +41,12 @@ class Settings(SettingsTemplate):
       status = f'Unable to connect - {status_returned}. Please check your API key, URL, and CORS headers'
     alert(status, title="API Test Results")
 
-  def button_add_user_click(self, **event_args):
+  def button_app_users_click(self, **event_args):
     """This method is called when the button is clicked"""
-    save = alert(AddUser(), buttons=[('Save', True)('Cancel', False)], large=True)
-    if save:
-      anvil.server.call('add_appuser')
+    self.clear()
+    self.add_component(AppUsers())
+
+
       
     
 

@@ -33,6 +33,8 @@ components:
         background: '', bold: false, underline: false}
       name: text_box_email
       layout_properties: {grid_position: 'VQZNRK,HNDHCK'}
+      data_bindings:
+      - {property: text, code: 'self.item[''email'']', writeback: true}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Password:', font_size: null, font: '', spacing_above: small,
@@ -47,19 +49,15 @@ components:
         background: '', bold: false, underline: false}
       name: text_box_password
       layout_properties: {grid_position: 'AFBOQG,VFIWJQ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''password'']', writeback: true}
     - type: CheckBox
       properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', allow_indeterminate: false, visible: true, text: Enable user,
         font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
-        background: '', bold: false, checked: true, underline: false}
+        background: '', bold: false, checked: false, underline: false}
       name: check_box_enabled
       layout_properties: {grid_position: 'ERSFCE,BREHIQ'}
-    - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: 'fa:floppy-o'}
-      name: button_save
-      layout_properties: {grid_position: 'LKGJAG,CCLKPE'}
-      event_bindings: {click: button_save_click}
+      data_bindings:
+      - {property: checked, code: 'self.item[''enabled'']', writeback: true}
 is_package: true

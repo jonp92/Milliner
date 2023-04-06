@@ -1,98 +1,51 @@
 container:
-  type: DataRowPanel
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: false,
-    visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
-    italic: false, background: '', bold: false, underline: false}
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
 components:
-- type: DataRowPanel
-  properties: {}
-  name: data_row_panel_view
-  layout_properties: {column: null}
-  data_bindings:
-  - {property: item, code: self.item}
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: EWLQOA, title: Email, data_key: email, $$hashKey: 'object:224148'}
+    - {id: NJORLQ, title: Password, data_key: password, $$hashKey: 'object:224164'}
+    - {id: XLHPBD, title: Enabled, data_key: enabled, $$hashKey: 'object:224149'}
+    - {id: BJTNIH, title: Last Login, data_key: last_login, $$hashKey: 'object:224150'}
+    - {id: ADBALN, title: Password Failures, data_key: n_password_failures, $$hashKey: 'object:224152'}
+    - {id: PZYHXE, title: Confirmed Email, data_key: confirmed_email, $$hashKey: 'object:224153'}
+    - {id: QFPEZE, title: '', data_key: '', $$hashKey: 'object:230262'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_appusers
+  layout_properties: {grid_position: 'GDBZFO,KYGIKR'}
   components:
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:pencil'}
-    name: button_edit
-    layout_properties: {column: EBGIFV}
-    event_bindings: {click: button_edit_click}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: '************************', font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: label_password
-    layout_properties: {column: HYFZTN}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: false,
-      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-      bold: false, checked: false, underline: false}
-    name: check_box_view_enabled
-    layout_properties: {column: OPUNPZ}
+  - type: RepeatingPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: none, spacing_below: none, item_template: Settings.AppUsers.AppUsersTemplate,
+      background: ''}
+    name: repeating_panel_appusers
+    layout_properties: {}
     data_bindings:
-    - {property: checked, code: 'self.item[''enabled'']', writeback: false}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: false,
-      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-      bold: false, checked: false, underline: false}
-    name: check_box_view_conf_email
-    layout_properties: {column: OFNDYC}
-    data_bindings:
-    - {property: checked, code: 'self.item[''confirmed_email'']', writeback: false}
-- type: DataRowPanel
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
-    visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
-    italic: false, background: '', bold: false, underline: false}
-  name: data_row_panel_edit
-  layout_properties: {column: null}
-  data_bindings:
-  - {property: item, code: self.item}
-  components:
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: 'fa:floppy-o'}
-    name: button_save_user_edit
-    layout_properties: {column: EBGIFV}
-    event_bindings: {click: button_save_user_edit_click}
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '********************',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
-    name: text_box_password
-    layout_properties: {column: HYFZTN}
-    event_bindings: {}
-    data_bindings: []
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: 'theme:Secondary',
-      bold: false, checked: false, underline: false}
-    name: check_box_edit_enabled
-    layout_properties: {column: OPUNPZ}
-    data_bindings:
-    - {property: checked, code: 'self.item[''enabled'']', writeback: true}
-  - type: CheckBox
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-      bold: false, checked: false, underline: false}
-    name: check_box_edit_confirmed_email
-    layout_properties: {column: OFNDYC}
-    data_bindings:
-    - {property: checked, code: 'self.item[''confirmed_email'']', writeback: true}
-  - type: TextBox
+    - {property: items, code: self.item}
+  - type: GridPanel
     properties: {}
-    name: text_box_email
-    layout_properties: {column: BPLMEV}
-    event_bindings: {}
-    data_bindings:
-    - {property: text, code: 'self.item[''email'']', writeback: false}
+    name: grid_panel_footer
+    layout_properties: {slot: footer}
+    components:
+    - type: Button
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Add Milliner User, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:users'}
+      name: button_add_user
+      layout_properties: {row: FFDUTA, width_xs: 4, col_xs: 0, width: 184.34375}
+      event_bindings: {click: button_add_user_click}
 is_package: true

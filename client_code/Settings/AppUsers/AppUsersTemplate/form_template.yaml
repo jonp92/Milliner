@@ -1,0 +1,99 @@
+container:
+  type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: false,
+    visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
+  data_bindings: []
+components:
+- type: DataRowPanel
+  properties: {}
+  name: data_row_panel_view
+  layout_properties: {column: null}
+  data_bindings:
+  - {property: item, code: self.item}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '************************', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: label_password
+    layout_properties: {column: NJORLQ}
+  - type: CheckBox
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: false,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, checked: false, underline: false}
+    name: check_box_view_enabled
+    layout_properties: {column: XLHPBD}
+    data_bindings:
+    - {property: checked, code: 'self.item[''enabled'']', writeback: false}
+  - type: CheckBox
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: false,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, checked: false, underline: false}
+    name: check_box_view_conf_email
+    layout_properties: {column: PZYHXE}
+    data_bindings:
+    - {property: checked, code: 'self.item[''confirmed_email'']', writeback: false}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:pencil'}
+    name: button_edit
+    layout_properties: {column: QFPEZE}
+    event_bindings: {click: button_edit_click}
+- type: DataRowPanel
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true,
+    visible: false, item: null, font_size: null, font: '', spacing_above: none, spacing_below: none,
+    italic: false, background: '', bold: false, underline: false}
+  name: data_row_panel_edit
+  layout_properties: {column: null}
+  data_bindings:
+  - {property: item, code: self.item}
+  components:
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:floppy-o'}
+    name: button_save_user_edit
+    layout_properties: {column: QFPEZE}
+    event_bindings: {click: button_save_user_edit_click}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '********************',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_box_password
+    layout_properties: {column: NJORLQ}
+    event_bindings: {}
+    data_bindings: []
+  - type: CheckBox
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: 'theme:Secondary',
+      bold: false, checked: false, underline: false}
+    name: check_box_edit_enabled
+    layout_properties: {column: XLHPBD}
+    data_bindings:
+    - {property: checked, code: 'self.item[''enabled'']', writeback: true}
+  - type: CheckBox
+    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+      foreground: '', allow_indeterminate: false, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+      bold: false, checked: false, underline: false}
+    name: check_box_edit_confirmed_email
+    layout_properties: {column: PZYHXE}
+    data_bindings:
+    - {property: checked, code: 'self.item[''confirmed_email'']', writeback: true}
+  - type: TextBox
+    properties: {}
+    name: text_box_email
+    layout_properties: {column: EWLQOA}
+    event_bindings: {}
+    data_bindings:
+    - {property: text, code: 'self.item[''email'']', writeback: false}
+is_package: true

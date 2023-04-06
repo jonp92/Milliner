@@ -64,60 +64,17 @@ components:
       event_bindings: {click: button_save_click}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Milliner Users:', font_size: null, font: '', spacing_above: small,
+        visible: true, text: 'Milliner Settings:', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: true, icon: ''}
       name: label_app_users
-      layout_properties: {row: UIEJUB, width_xs: 12, col_xs: 0, width: 136.65625}
-    - type: DataGrid
-      properties:
-        role: null
-        columns:
-        - {id: BPLMEV, title: Email, data_key: email, $$hashKey: 'object:105618',
-          expand: true, width: 159}
-        - {id: OPUNPZ, title: Enabled, data_key: enabled, $$hashKey: 'object:105619',
-          width: 91, expand: false}
-        - {id: MSCXAW, title: Last Login, data_key: last_login, $$hashKey: 'object:105620',
-          expand: false, width: 176}
-        - {id: HYFZTN, title: Password, data_key: '', $$hashKey: 'object:105621',
-          width: '175', expand: false}
-        - {id: KNPGKD, title: Password Failures, data_key: n_password_failures, $$hashKey: 'object:105622',
-          width: 90, expand: false}
-        - {id: OFNDYC, title: Confirmed Email, data_key: confirmed_email, $$hashKey: 'object:105623',
-          width: 148, expand: false}
-        - {id: EBGIFV, title: '', data_key: '', $$hashKey: 'object:110402'}
-        auto_header: true
-        tooltip: ''
-        border: ''
-        foreground: ''
-        rows_per_page: 20
-        visible: true
-        wrap_on: never
-        show_page_controls: true
-        spacing_above: small
-        spacing_below: small
-        background: ''
-      name: data_grid_app_users
-      layout_properties: {row: FLHMTB, width_xs: 12, col_xs: 0, width: 970}
-      components:
-      - type: RepeatingPanel
-        properties: {spacing_above: none, spacing_below: none, item_template: Settings.AppUsers}
-        name: repeating_panel_app_users
-        layout_properties: {}
-        data_bindings:
-        - {property: items, code: self.users}
-      - type: GridPanel
-        properties: {}
-        name: grid_panel_footer_container
-        layout_properties: {slot: footer}
-        components:
-        - type: Button
-          properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
-            foreground: '', visible: true, text: Add User, font_size: null, font: '',
-            spacing_above: none, icon_align: left, spacing_below: none, italic: false,
-            background: '', bold: false, underline: false, icon: 'fa:user'}
-          name: button_add_user
-          layout_properties: {row: UZYXIY, width_xs: 3, col_xs: 0, width: 184.34375}
-          event_bindings: {click: button_add_user_click}
-      data_bindings: []
+      layout_properties: {row: FMZJBQ, width_xs: 12, col_xs: 0, width: 970}
+    - type: Button
+      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Milliner Users, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:users'}
+      name: button_app_users
+      layout_properties: {row: YCCUCA, width_xs: 3, col_xs: 8, width: 220}
+      event_bindings: {click: button_app_users_click}
 is_package: true
