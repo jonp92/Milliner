@@ -20,7 +20,7 @@ class AppUsers(AppUsersTemplate):
 
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('update_app_user', self.text_box_email.text, self.item)
+    anvil.server.call('update_app_user', self.text_box_email.text, self.item, self.text_box_password.text)
     self.parent.raise_event('x-refresh')
     self.refresh_data_bindings()
     self.data_row_panel_view.visible = True
