@@ -1,23 +1,52 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: tiny, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: column_panel_1
-  layout_properties: {grid_position: 'CABSNK,JZAIYV'}
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: IYECDI, title: Name, data_key: name, $$hashKey: 'object:672', width: '80',
+      expand: false}
+    - {id: UAIMLQ, title: IpAddr, data_key: ipAddr, $$hashKey: 'object:673', expand: false,
+      width: '175'}
+    - {id: HLQAWD, title: User, data_key: user, $$hashKey: 'object:685', expand: false,
+      width: 175}
+    - {id: KMRUBB, title: Expiry, data_key: expiry, $$hashKey: 'object:675', expand: false,
+      width: '175'}
+    - {id: WCOZKP, title: Online, data_key: online, $$hashKey: 'object:688', width: '75',
+      expand: false}
+    - {id: ATNRNG, title: CreatedAt, data_key: createdAt, $$hashKey: 'object:678',
+      expand: false, width: '175'}
+    - {id: MHXUUT, title: LastUpdate, data_key: lastSuccessfulUpdate, $$hashKey: 'object:680',
+      expand: false, width: '175'}
+    - {id: WWESIH, title: LastSeen, data_key: lastSeen, $$hashKey: 'object:683', expand: false,
+      width: ''}
+    - {id: XDPHNX, title: InvalidTags, data_key: invalidTags, $$hashKey: 'object:679',
+      width: '', expand: false}
+    - {id: QADIOS, title: ForcedTags, data_key: forcedTags, $$hashKey: 'object:681',
+      width: '', expand: false}
+    - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '', expand: false}
+    - {id: MYQOAM, title: ValidTags, data_key: validTags, $$hashKey: 'object:689'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_machines
+  layout_properties: {grid_position: 'NDGYIH,QPSALL', full_width_row: true}
   components:
-  - type: DataGrid
-    properties:
-      columns:
-      - {id: WYRAVD, title: Column 1, data_key: column_1}
-      - {id: BXFMMK, title: Column 2, data_key: column_2}
-      - {id: ODJJBR, title: Column 3, data_key: column_3}
-    name: data_grid_1
-    layout_properties: {grid_position: 'BZJOMQ,CNVZLK'}
-    components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Machines.RowTemplate2}
-      name: repeating_panel_1
-      layout_properties: {}
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: Machines.RowTemplate2}
+    name: repeating_panel_machines
+    layout_properties: {}
+    data_bindings: []
 is_package: true

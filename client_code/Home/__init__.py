@@ -5,7 +5,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+from ..Machines import Machines
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.url = [r['url'] for r in app_tables.settings.search()][0]
@@ -13,10 +13,10 @@ class Home(HomeTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if self.user:
-      self.form_show()
-    else:
-      anvil.users.login_with_form()
+    #if self.user:
+      #self.form_show()
+    #else:
+      #anvil.users.login_with_form()
     # Any code you write here will run before the form opens.
 
   def link_1_click(self, **event_args):
@@ -31,7 +31,9 @@ class Home(HomeTemplate):
 
   def link_machines_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    self.column_panel_home.clear()
+    self.column_panel_home.add_component(Machines(), full_width_row=True)
+    
 
 
 

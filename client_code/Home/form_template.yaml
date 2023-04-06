@@ -5,8 +5,10 @@ container:
   event_bindings: {show: form_show}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: column_panel_1
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_home
   layout_properties: {slot: default}
   components:
   - type: GridPanel
