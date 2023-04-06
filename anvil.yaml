@@ -1,0 +1,8 @@
+allow_embedding: false
+package_name: Rally_App_1
+name: Rally App 1
+startup_form: Form1
+native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
+    rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+services: []
