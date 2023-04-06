@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     self.users = anvil.server.call('get_app_users_table').search()
+    self.repeating_panel_app_users.set_event_handler('x-refresh', self.refresh_data_bindings)
     if app_tables.settings.get() == None:
       self.item['url'] = ''
       self.item['api_key'] = ''
