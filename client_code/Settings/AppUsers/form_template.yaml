@@ -58,9 +58,9 @@ components:
       foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:floppy-o'}
-    name: button_save
+    name: button_save_user_edit
     layout_properties: {column: EBGIFV}
-    event_bindings: {click: button_save_click}
+    event_bindings: {click: button_save_user_edit_click}
   - type: TextBox
     properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '********************',
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,

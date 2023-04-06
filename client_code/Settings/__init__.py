@@ -26,6 +26,7 @@ class Settings(SettingsTemplate):
 
   def refresh_data(self, **event_args):
     self.repeating_panel_app_users.items = anvil.server.call('get_app_users_table').search()
+    
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
     if app_tables.settings.get() == None:
@@ -46,9 +47,9 @@ class Settings(SettingsTemplate):
 
   def button_add_user_click(self, **event_args):
     """This method is called when the button is clicked"""
-    save = alert(AddUser(), buttons=[], large=True)
+    save = alert(AddUser(), buttons=[('Save', True)('Cancel', False)], large=True)
     if save:
-      self.refresh_data()
-      self.refresh_data_bindings()
+      anvil.server.call('add_appuser')
+      
     
 

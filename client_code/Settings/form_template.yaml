@@ -8,7 +8,8 @@ components:
   layout_properties: {grid_position: 'NGXVPF,MZNVVM'}
   components:
   - type: GridPanel
-    properties: {}
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_1
     layout_properties: {grid_position: 'EILTKL,NMJNVE'}
     components:
