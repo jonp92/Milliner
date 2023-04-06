@@ -11,7 +11,7 @@ services:
   server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: false}
+    confirm_email: false, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 startup: {type: form, module: Home}
 package_name: Rally_App_1
@@ -122,4 +122,18 @@ db_schema:
     columns:
     - name: api_key
       admin_ui: {width: 200}
+      type: string
+  hs_users:
+    title: hs_users
+    client: none
+    server: full
+    columns:
+    - name: id
+      admin_ui: {width: 200}
+      type: string
+    - name: name
+      admin_ui: {}
+      type: string
+    - name: createdAt
+      admin_ui: {}
       type: string

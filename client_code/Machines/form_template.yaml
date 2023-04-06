@@ -4,32 +4,41 @@ container:
     wrap_on: mobile, col_spacing: tiny, spacing_above: small, col_widths: '{}', spacing_below: small,
     background: ''}
 components:
+- type: Label
+  properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: Machines, font_size: null, font: '', spacing_above: none,
+    icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+    underline: true, icon: ''}
+  name: label_title
+  layout_properties: {grid_position: 'KJKRCR,AFPXXY'}
 - type: DataGrid
   properties:
     role: null
     columns:
-    - {id: IYECDI, title: Name, data_key: name, $$hashKey: 'object:672', width: '80',
+    - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '50',
       expand: false}
+    - {id: IYECDI, title: Name, data_key: name, $$hashKey: 'object:672', width: '100',
+      expand: true}
     - {id: UAIMLQ, title: IpAddr, data_key: ipAddr, $$hashKey: 'object:673', expand: false,
-      width: '175'}
+      width: '150'}
     - {id: HLQAWD, title: User, data_key: user, $$hashKey: 'object:685', expand: false,
-      width: 175}
-    - {id: KMRUBB, title: Expiry, data_key: expiry, $$hashKey: 'object:675', expand: false,
+      width: '90'}
+    - {id: KMRUBB, title: Expiry, data_key: expiry, $$hashKey: 'object:675', expand: true,
       width: '175'}
+    - {id: ATNRNG, title: CreatedAt, data_key: createdAt, $$hashKey: 'object:678',
+      expand: true, width: '175'}
     - {id: WCOZKP, title: Online, data_key: online, $$hashKey: 'object:688', width: '75',
       expand: false}
-    - {id: ATNRNG, title: CreatedAt, data_key: createdAt, $$hashKey: 'object:678',
-      expand: false, width: '175'}
     - {id: MHXUUT, title: LastUpdate, data_key: lastSuccessfulUpdate, $$hashKey: 'object:680',
-      expand: false, width: '175'}
-    - {id: WWESIH, title: LastSeen, data_key: lastSeen, $$hashKey: 'object:683', expand: false,
-      width: ''}
+      expand: true, width: '175'}
+    - {id: WWESIH, title: LastSeen, data_key: lastSeen, $$hashKey: 'object:683', expand: true,
+      width: '175'}
     - {id: XDPHNX, title: InvalidTags, data_key: invalidTags, $$hashKey: 'object:679',
-      width: '', expand: false}
+      width: '100', expand: false}
     - {id: QADIOS, title: ForcedTags, data_key: forcedTags, $$hashKey: 'object:681',
-      width: '', expand: false}
-    - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '', expand: false}
-    - {id: MYQOAM, title: ValidTags, data_key: validTags, $$hashKey: 'object:689'}
+      width: '100', expand: false}
+    - {id: MYQOAM, title: ValidTags, data_key: validTags, $$hashKey: 'object:689',
+      width: '100'}
     auto_header: true
     tooltip: ''
     border: ''

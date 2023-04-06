@@ -14,7 +14,7 @@ def record_machines(url, api_key):
     if machine_row:
       machine_row.update(name=machine['name'], id=machine['id'], ipAddr=machine['ipAddresses'], 
                                 online=machine['online'], 
-                                user= machine['user'],
+                                user= machine['user']['name'],
                                 lastSeen= machine['lastSeen'],
                                 expiry= machine['expiry'],
                                 registerMethod= machine['registerMethod'],
@@ -45,4 +45,14 @@ def record_machines(url, api_key):
                                 forcedTags = machine['forcedTags'],
                                 nodeKey = machine['nodeKey'],
                                 preAuthKey= machine['preAuthKey'])      
-  
+
+@anvil.server.callable
+@anvil.server.background_task
+def record_users(url, api_key):
+  data=anvil.server.call('get_users', url, api_key)
+  for user in data['users']:
+    user_row = app_tables.hs_users.get(id=user['id'])
+    if user_row:
+      user_row.update(id=user['id'], name=user['name'], createdAt=user['createdAt'])
+    else:
+      app_tables.hs_users.add_row(id=user['id'], name=user['name'], createdAt=user['createdAt'])
