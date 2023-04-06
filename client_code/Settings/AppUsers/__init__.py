@@ -22,8 +22,11 @@ class AppUsers(AppUsersTemplate):
     """This method is called when the button is clicked"""
     anvil.server.call('update_app_user', self.text_box_email.text, self.item)
     self.parent.raise_event('x-refresh')
+    self.refresh_data_bindings()
     self.data_row_panel_view.visible = True
     self.data_row_panel_edit.visible = False
+
+
 
 
 
