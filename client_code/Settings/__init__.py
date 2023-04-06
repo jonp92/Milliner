@@ -9,7 +9,7 @@ from anvil.tables import app_tables
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     self.users = anvil.server.call('get_app_users_table').search()
-    self.repeating_panel_app_users.set_event_handler('x-refresh', self.refresh_data_bindings)
+    self.repeating_panel_app_users.set_event_handler('x-refresh', self.refresh_data)
     if app_tables.settings.get() == None:
       self.item['url'] = ''
       self.item['api_key'] = ''
@@ -23,6 +23,9 @@ class Settings(SettingsTemplate):
 
     # Any code you write here will run before the form opens.
 
+  def refresh_data(self, **event_args):
+    self.repeating_panel_app_users.items = anvil.server.call('get_app_users_table').search()
+    self.refresh_data_bindings()
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
     if app_tables.settings.get() == None:
