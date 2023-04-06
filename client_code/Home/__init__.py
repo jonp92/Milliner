@@ -29,6 +29,11 @@ class Home(HomeTemplate):
     """This method is called when the button is clicked"""
     anvil.server.call('record_machines', self.url, self.api_key)
 
+  def link_machines_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+
 
 
     

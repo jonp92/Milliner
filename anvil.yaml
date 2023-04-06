@@ -1,3 +1,10 @@
+scheduled_tasks:
+- task_name: record_machines
+  time_spec:
+    n: 5
+    every: minute
+    at: {}
+  job_id: JMAKXPDN
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
@@ -15,50 +22,104 @@ startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 db_schema:
+  machines:
+    title: Machines
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {}
+      type: string
+    - name: ipAddr
+      admin_ui: {}
+      type: simpleObject
+    - name: discoKey
+      admin_ui: {}
+      type: string
+    - name: expiry
+      admin_ui: {}
+      type: string
+    - name: registerMethod
+      admin_ui: {}
+      type: string
+    - name: machineKey
+      admin_ui: {}
+      type: string
+    - name: createdAt
+      admin_ui: {}
+      type: string
+    - name: invalidTags
+      admin_ui: {}
+      type: unresolvedArray
+    - name: lastSuccessfulUpdate
+      admin_ui: {}
+      type: string
+    - name: forcedTags
+      admin_ui: {}
+      type: unresolvedArray
+    - name: nodeKey
+      admin_ui: {}
+      type: string
+    - name: lastSeen
+      admin_ui: {}
+      type: string
+    - name: preAuthKey
+      admin_ui: {}
+      type: unresolved
+    - name: user
+      admin_ui: {}
+      type: simpleObject
+    - name: id
+      admin_ui: {}
+      type: string
+    - name: givenName
+      admin_ui: {}
+      type: string
+    - name: online
+      admin_ui: {}
+      type: bool
+    - name: validTags
+      admin_ui: {}
+      type: unresolvedArray
   users:
+    title: Users
     client: none
     server: full
     columns:
     - name: email
+      admin_ui: {width: 200}
       type: string
-      admin_ui: {order: 0, width: 200}
     - name: enabled
+      admin_ui: {width: 200}
       type: bool
-      admin_ui: {order: 1, width: 200}
     - name: last_login
+      admin_ui: {width: 200}
       type: datetime
-      admin_ui: {order: 2, width: 200}
     - name: password_hash
+      admin_ui: {width: 200}
       type: string
-      admin_ui: {order: 3, width: 200}
     - name: n_password_failures
+      admin_ui: {width: 200}
       type: number
-      admin_ui: {order: 4, width: 200}
     - name: confirmed_email
+      admin_ui: {width: 200}
       type: bool
-      admin_ui: {order: 5, width: 200}
     - name: signed_up
+      admin_ui: {width: 200}
       type: datetime
-      admin_ui: {order: 6, width: 200}
-    title: Users
   settings:
+    title: Settings
     client: search
     server: full
     columns:
     - name: url
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: Settings
   api_keys:
+    title: api_keys
     client: search
     server: full
     columns:
     - name: api_key
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {width: 200}
       type: string
-    title: api_keys
-  machines:
-    client: none
-    server: full
-    columns: []
-    title: Machines

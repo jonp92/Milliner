@@ -60,26 +60,27 @@ components:
       visible: true, text: Home, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:home'}
-    name: link_1
+    name: link_home
     layout_properties: {}
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Users, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:users'}
-    name: link_2
+    name: link_users
     layout_properties: {}
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
-      visible: true, text: Devices, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+      visible: true, text: Machines, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:desktop'}
-    name: link_3
+    name: link_machines
     layout_properties: {}
+    event_bindings: {click: link_machines_click}
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Settings, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:cogs'}
-    name: link_4
+    name: link_settings
     layout_properties: {}
