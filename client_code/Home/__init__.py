@@ -8,14 +8,16 @@ from anvil.tables import app_tables
 from ..Machines import Machines
 from ..Users import Users
 from ..Routes import Routes
+from ..Settings import Settings
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.version = 'v.0.0.3'
+    fresh_install = anvil.server.call('check_users_table')
     self.url = [r['url'] for r in app_tables.settings.search()][0]
-    
-    self.api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
-    self.user = anvil.users.get_user()
+    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    self.item = anvil.server.call('get_machine_table').search(online=True)
+    self.user = None
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.visible = False
@@ -24,10 +26,9 @@ class Home(HomeTemplate):
     else:
       anvil.users.login_with_form()
       self.visible = True
+    self.user = anvil.users.get_user()
+    self.link_user.text = self.user['email']
     # Any code you write here will run before the form opens.
-
-  def link_1_click(self, **event_args):
-    """This method is called when the link is clicked"""
 
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
@@ -38,7 +39,12 @@ class Home(HomeTemplate):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(anvil.server.call('test_api_key', self.url, self.api_key))
+    status_returned = anvil.server.call('test_api_key', self.url, self.api_key)
+    if status_returned == 200:
+      status = f'{status_returned} - Connection Succesful'
+    else:
+      status = f'Unable to connect - {status_returned}. Please check your API key, URL, and CORS headers'
+    alert(status, title="API Test Results")
 
   def link_machines_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -66,6 +72,12 @@ class Home(HomeTemplate):
     """This method is called when the link is clicked"""
     self.column_panel_home.clear()
     self.column_panel_home.add_component(Routes())
+
+  def link_settings_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.column_panel_home.clear()
+    self.column_panel_home.add_component(Settings())
+
 
 
 

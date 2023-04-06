@@ -1,0 +1,109 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_settings
+  layout_properties: {grid_position: 'NGXVPF,MZNVVM'}
+  components:
+  - type: GridPanel
+    properties: {}
+    name: grid_panel_1
+    layout_properties: {grid_position: 'EILTKL,NMJNVE'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Headscale Server Settings:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: true, icon: ''}
+      name: label_header1
+      layout_properties: {row: SBYKCF, width_xs: 12, col_xs: 0, width: 970}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Headscale Server URL:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_url
+      layout_properties: {row: QYHVSU, width_xs: 2, col_xs: 0, width: 136.65625}
+    - type: TextBox
+      properties: {}
+      name: text_box_url
+      layout_properties: {row: QYHVSU, width_xs: 9, col_xs: 2}
+      data_bindings:
+      - {property: text, code: 'self.item[''url'']', writeback: true}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Headscale API Key:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_api_key
+      layout_properties: {row: FGOVGD, width_xs: 2, col_xs: 0, width: 136.65625}
+    - type: TextBox
+      properties: {}
+      name: text_box_api_key
+      layout_properties: {row: FGOVGD, width_xs: 9, col_xs: 2}
+      data_bindings:
+      - {property: text, code: 'self.item[''api_key'']', writeback: true}
+    - type: Button
+      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Test API, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:cog'}
+      name: button_test_api
+      layout_properties: {row: GILCGU, width_xs: 2, col_xs: 7, width: 136.65625}
+      event_bindings: {click: button_test_api_click}
+    - type: Button
+      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:floppy-o'}
+      name: button_save
+      layout_properties: {row: GILCGU, width_xs: 2, col_xs: 9, width: 136.65625}
+      event_bindings: {click: button_save_click}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Milliner Users:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: true, icon: ''}
+      name: label_app_users
+      layout_properties: {row: UIEJUB, width_xs: 12, col_xs: 0, width: 136.65625}
+    - type: DataGrid
+      properties:
+        role: null
+        columns:
+        - {id: BPLMEV, title: Email, data_key: email, $$hashKey: 'object:105618',
+          expand: true, width: 159}
+        - {id: OPUNPZ, title: Enabled, data_key: enabled, $$hashKey: 'object:105619',
+          width: 91, expand: false}
+        - {id: MSCXAW, title: Last Login, data_key: last_login, $$hashKey: 'object:105620',
+          expand: false, width: 176}
+        - {id: HYFZTN, title: Password, data_key: '', $$hashKey: 'object:105621',
+          width: '175', expand: false}
+        - {id: KNPGKD, title: Password Failures, data_key: n_password_failures, $$hashKey: 'object:105622',
+          width: 90, expand: false}
+        - {id: OFNDYC, title: Confirmed Email, data_key: confirmed_email, $$hashKey: 'object:105623',
+          width: 148, expand: false}
+        - {id: EBGIFV, title: '', data_key: '', $$hashKey: 'object:110402'}
+        auto_header: true
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 20
+        visible: true
+        wrap_on: never
+        show_page_controls: true
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_app_users
+      layout_properties: {row: FLHMTB, width_xs: 12, col_xs: 0, width: 970}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: Settings.AppUsers}
+        name: repeating_panel_app_users
+        layout_properties: {}
+        data_bindings:
+        - {property: items, code: self.users}
+      data_bindings: []
+is_package: true

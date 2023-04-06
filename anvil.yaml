@@ -126,19 +126,14 @@ db_schema:
       type: simpleObject
   settings:
     title: Settings
-    client: search
+    client: full
     server: full
     columns:
     - name: url
       admin_ui: {width: 200}
       type: string
-  api_keys:
-    title: api_keys
-    client: search
-    server: full
-    columns:
     - name: api_key
-      admin_ui: {width: 200}
+      admin_ui: {order: 1, width: 200}
       type: string
   hs_users:
     title: hs_users

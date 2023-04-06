@@ -8,7 +8,7 @@ components:
   properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: Machines, font_size: null, font: '', spacing_above: none,
     icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
-    underline: true, icon: ''}
+    underline: true, icon: 'fa:desktop'}
   name: label_title
   layout_properties: {grid_position: 'KJKRCR,AFPXXY'}
 - type: DataGrid
