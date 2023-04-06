@@ -1,8 +1,37 @@
-allow_embedding: false
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: false}
+  server_config: {user_table: users}
+startup: {type: form, module: Home}
 package_name: Rally_App_1
+allow_embedding: false
 name: Rally App 1
-startup_form: Form1
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-services: []
+db_schema:
+  devices:
+    client: none
+    server: full
+    columns: []
+    title: Devices
+  users:
+    client: none
+    server: full
+    columns: []
+    title: Users
+  settings:
+    client: none
+    server: full
+    columns: []
+    title: Settings
+  api_keys:
+    client: none
+    server: full
+    columns: []
+    title: api_keys
