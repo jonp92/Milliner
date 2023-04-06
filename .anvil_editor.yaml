@@ -4,8 +4,8 @@ unique_ids:
     Home.RowTemplate1: '1680742075787691035143944.1995'
   modules: {}
   server_modules:
-    ServerModule1: '1680784797723764777233107.3958'
     API_Interface: '1680742140322703776832328.0709'
+    RecordRecorder: '1680784797723764777233107.3958'
   assets:
     standard-page.html: VM5NH54ERXEK273777JO4IMYNUOIM4BZ
     theme.css: QDIZM2OVOKIZBAXMIRPNEDTR27VECD23

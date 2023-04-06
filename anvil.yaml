@@ -1,7 +1,7 @@
 services:
 - source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
+  client_config: {enable_v2: true}
+  server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,
     confirm_email: false}
@@ -15,11 +15,6 @@ startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 db_schema:
-  devices:
-    client: none
-    server: full
-    columns: []
-    title: Devices
   users:
     client: none
     server: full
@@ -62,3 +57,8 @@ db_schema:
       admin_ui: {order: 0, width: 200}
       type: string
     title: api_keys
+  machines:
+    client: none
+    server: full
+    columns: []
+    title: Machines
