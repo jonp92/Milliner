@@ -8,7 +8,7 @@ components:
     columns:
     - {id: OJSHAX, title: Id, data_key: id, $$hashKey: 'object:1718', width: '50'}
     - {id: WJJKDO, title: Prefix, data_key: prefix, $$hashKey: 'object:1719', width: '175',
-      expand: true}
+      expand: false}
     - {id: RQPBKG, title: MachineName, data_key: machineName, $$hashKey: 'object:1720',
       width: '125', expand: true}
     - {id: DEYOGZ, title: MachineIPs, data_key: machineIPs, $$hashKey: 'object:1721',

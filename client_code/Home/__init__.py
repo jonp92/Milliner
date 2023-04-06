@@ -11,7 +11,9 @@ from ..Routes import Routes
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
+    self.version = 'v.0.0.3'
     self.url = [r['url'] for r in app_tables.settings.search()][0]
+    
     self.api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
@@ -29,14 +31,14 @@ class Home(HomeTemplate):
 
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
-    if self.url == None:
+    if self.url == "":
       alert('No URL has been set. The application will not function until one is set in Settings.', title='No URL!')
-    if self.api_key == None:
+    if self.api_key == "":
       alert('No API Key has been set. The application will not function until one is set in Settings.', title='No API Key!')  
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(anvil.server.call('record_routes', self.url, self.api_key))
+    alert(anvil.server.call('test_api_key', self.url, self.api_key))
 
   def link_machines_click(self, **event_args):
     """This method is called when the link is clicked"""

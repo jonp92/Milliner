@@ -5,6 +5,18 @@ scheduled_tasks:
     every: minute
     at: {}
   job_id: JMAKXPDN
+- task_name: record_users
+  time_spec:
+    n: 5
+    every: minute
+    at: {}
+  job_id: BJVVVHAS
+- task_name: record_routes
+  time_spec:
+    n: 5
+    every: minute
+    at: {}
+  job_id: FAGDAFJR
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
@@ -14,10 +26,12 @@ services:
     confirm_email: false, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
 startup: {type: form, module: Home}
-package_name: Rally_App_1
+package_name: Milliner
 allow_embedding: false
-name: Rally App 1
+name: Milliner
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {title: Milliner, description: A simple UI to control a Headscale implementation.,
+  logo_img: 'asset:milliner_logo.png'}
 startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
