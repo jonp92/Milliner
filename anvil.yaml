@@ -47,7 +47,7 @@ db_schema:
       admin_ui: {order: 6, width: 200}
     title: Users
   settings:
-    client: none
+    client: search
     server: full
     columns:
     - name: url
@@ -55,7 +55,7 @@ db_schema:
       type: string
     title: Settings
   api_keys:
-    client: none
+    client: search
     server: full
     columns:
     - name: api_key

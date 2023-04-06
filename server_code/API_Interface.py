@@ -7,6 +7,7 @@ import requests
 
 
 
+@anvil.server.callable
 def test_api_key(url, api_key):
     response = requests.get(
         str(url)+"/api/v1/apikey",

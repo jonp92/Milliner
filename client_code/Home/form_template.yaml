@@ -14,6 +14,15 @@ components:
     name: grid_panel_1
     layout_properties: {grid_position: 'KBOIBO,YBDPJB'}
     components:
+    - type: Button
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: 'test api
+
+          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      name: button_1
+      layout_properties: {row: MTYIAE, width_xs: 2, col_xs: 7, width: 96.8}
+      event_bindings: {click: button_1_click}
     - type: Link
       properties: {role: null, url: '', align: right, tooltip: '', border: '', foreground: '',
         visible: true, text: Users, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,

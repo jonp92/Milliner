@@ -12,6 +12,8 @@ class Home(HomeTemplate):
       pass
     else:
       anvil.users.login_with_form()
+      self.url = [r['url'] for r in app_tables.settings.search()][0]
+      self.api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
@@ -22,6 +24,11 @@ class Home(HomeTemplate):
 
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    print(anvil.server.call('test_api_key', self.url, self.api_key))
+
 
 
     
