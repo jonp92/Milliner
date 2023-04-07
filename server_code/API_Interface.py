@@ -339,7 +339,7 @@ def add_user(url, api_key, data):
     )
     status = True if response.status_code == 200 else False
     if response.status_code == 200:
-        print("User added.")
+        print("User added.")	
     else:
         print("Adding User failed!")
     return status
