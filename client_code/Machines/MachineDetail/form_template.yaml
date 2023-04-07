@@ -11,9 +11,9 @@ components:
     properties:
       role: null
       columns:
-      - {id: YDQOGZ, title: Prefixes, data_key: prefixes, $$hashKey: 'object:69729'}
+      - {id: YDQOGZ, title: Prefixes, data_key: prefix, $$hashKey: 'object:69729'}
       - {id: JPGVYI, title: Enabled, data_key: enabled, $$hashKey: 'object:69995'}
-      - {id: PGODDC, title: Online, data_key: online, $$hashKey: 'object:69997'}
+      - {id: PGODDC, title: Online, data_key: '', $$hashKey: 'object:69997'}
       - {id: IHGIYW, title: Advertised, data_key: advertised, $$hashKey: 'object:69999'}
       auto_header: true
       tooltip: ''
@@ -33,6 +33,5 @@ components:
       properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineDetail.RowTemplate2}
       name: repeating_panel_machine_routes
       layout_properties: {}
-      data_bindings:
-      - {property: items, code: self.item}
+      data_bindings: []
 is_package: true
