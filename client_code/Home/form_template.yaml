@@ -81,11 +81,12 @@ components:
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Home, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:home'}
     name: link_home
     layout_properties: {}
     event_bindings: {click: link_home_click}
+    components: []
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Users, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
@@ -105,11 +106,12 @@ components:
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Routes, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+      spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:map-signs'}
     name: link_routes
     layout_properties: {}
     event_bindings: {click: link_routes_click}
+    components: []
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
       visible: true, text: Settings, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,

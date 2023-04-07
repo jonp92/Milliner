@@ -4,9 +4,9 @@ components:
   properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
     visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
     spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: 'fa:desktop'}
-  name: link_machine_id
-  layout_properties: {column: RWBSWP}
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:user'}
+  name: link_id
+  layout_properties: {column: GQMYHE}
   data_bindings:
   - {property: text, code: 'self.item[''id'']'}
 is_package: true
