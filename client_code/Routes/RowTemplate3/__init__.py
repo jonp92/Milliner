@@ -19,5 +19,6 @@ class RowTemplate3(RowTemplate3Template):
     self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
     anvil.server.call('update_route', self.url, self.api_key, self.item['id'], self.check_box_enabled.checked)
     anvil.server.call('record_routes')
+    self.parent.raise_event('x-refresh')
     self.refresh_data_bindings()
 
