@@ -39,4 +39,46 @@ components:
     layout_properties: {}
     data_bindings:
     - {property: items, code: self.item}
+  - type: GridPanel
+    properties: {spacing_above: small, spacing_below: none, background: '', foreground: '',
+      border: '', visible: true, role: null, tooltip: ''}
+    name: grid_panel_footer
+    layout_properties: {slot: footer, grid_position: 'KNMQKZ,ZTRYOJ'}
+    components:
+    - type: ColumnPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: none, col_widths: '{"TAWCJI":10,"VYGRLX":27,"WCRMFS":21}',
+        spacing_below: none, background: ''}
+      name: column_panel_new_user
+      layout_properties: {column: VHVAOD, slot: footer, row: LJSSCW, width_xs: 9,
+        col_xs: 0, width: 613.046875}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'Username:', font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_username
+        layout_properties: {grid_position: 'YXLDXX,TAWCJI'}
+      - type: TextBox
+        properties: {}
+        name: text_box_username
+        layout_properties: {grid_position: 'YXLDXX,VYGRLX'}
+      - type: Button
+        properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: 'fa:floppy-o'}
+        name: button_save_new_user
+        layout_properties: {row: MVIIHF, width_xs: 5, col_xs: 0, width: 122.484375,
+          grid_position: 'YXLDXX,WCRMFS'}
+        event_bindings: {click: button_save_new_user_click}
+    - type: Button
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Add User, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:user'}
+      name: button_add_user
+      layout_properties: {row: LJSSCW, width_xs: 3, col_xs: 9, width: 184.34375}
+      event_bindings: {click: button_add_user_click}
 is_package: true

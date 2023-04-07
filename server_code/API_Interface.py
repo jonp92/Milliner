@@ -337,12 +337,12 @@ def add_user(url, api_key, data):
             'Authorization': 'Bearer '+str(api_key)
         }
     )
-    status = "True" if response.status_code == 200 else "False"
+    status = True if response.status_code == 200 else False
     if response.status_code == 200:
         print("User added.")
     else:
         print("Adding User failed!")
-    return {"status": status, "body": response.json()}
+    return status
 
 ##################################################################
 # Functions related to PREAUTH KEYS in USERS

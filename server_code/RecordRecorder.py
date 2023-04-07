@@ -38,7 +38,7 @@ def record_machines():
     else:
       app_tables.machines.add_row(name=machine['name'], id=machine['id'], ipAddr=machine['ipAddresses'], 
                                 online=machine['online'], 
-                                user= machine['user'],
+                                user= machine['user']['name'],
                                 lastSeen= machine['lastSeen'],
                                 expiry= machine['expiry'],
                                 registerMethod= machine['registerMethod'],
