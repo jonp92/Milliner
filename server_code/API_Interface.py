@@ -160,24 +160,26 @@ def move_user(url, api_key, machine_id, new_user):
     return response.json()
 @anvil.server.callable
 def update_route(url, api_key, route_id, current_state):
-    action = "disable" if current_state == "True" else "enable"
+  if current_state == False:
+    action = "disable" 
+  elif current_state == True:
+    action = "enable"
+  print(f"Updating Route {route_id}:  Action: {action}")
 
-    print("Updating Route %s:  Action: %s", str(route_id), str(action))
+  # Debug
+  print("URL:  "+str(url))
+  print("Route ID:  "+str(route_id))
+  print("Current State:  "+str(current_state))
+  print("Action to take:  "+str(action))
 
-    # Debug
-    print("URL:  "+str(url))
-    print("Route ID:  "+str(route_id))
-    print("Current State:  "+str(current_state))
-    print("Action to take:  "+str(action))
-
-    response = requests.post(
-        str(url)+"/api/v1/routes/"+str(route_id)+"/"+str(action),
-        headers={
-            'Accept': 'application/json',
-            'Authorization': 'Bearer '+str(api_key)
-        }
-    )
-    return response.json()
+  response = requests.post(
+      str(url)+"/api/v1/routes/"+str(route_id)+"/"+str(action),
+      headers={
+          'Accept': 'application/json',
+          'Authorization': 'Bearer '+str(api_key)
+      }
+  )
+  return response.json()
 
 @anvil.server.callable
 # Get all machines on the Headscale network

@@ -9,7 +9,7 @@ import json
 @anvil.server.background_task
 def record_machines():
   url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
+  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data=anvil.server.call('get_machines', url, api_key)
   for machine in data['machines']:
     machine_row = app_tables.machines.get(id=machine['id'])
@@ -52,7 +52,7 @@ def record_machines():
 @anvil.server.background_task
 def record_users():
   url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
+  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data=anvil.server.call('get_users', url, api_key)
   for user in data['users']:
     user_row = app_tables.hs_users.get(id=user['id'])
@@ -65,7 +65,7 @@ def record_users():
 @anvil.server.background_task
 def record_routes():
   url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.api_keys.search()][0]
+  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data=anvil.server.call('get_routes', url, api_key)
   for route in data['routes']:
     route_row = app_tables.routes.get(id=int(route['id']))
