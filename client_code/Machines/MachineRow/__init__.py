@@ -16,7 +16,7 @@ class MachineRow(MachineRowTemplate):
 
   def link_machine_id_click(self, **event_args):
     """This method is called when the link is clicked"""
-    alert(MachineDetail(self.item['id']), large=True, title=self.item['name'])
+    alert(MachineDetail(self.item['id'], self.item), large=True, title=self.item['name'])
 
 
 

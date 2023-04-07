@@ -7,31 +7,74 @@ components:
   name: grid_panel_container
   layout_properties: {grid_position: 'ONHNCD,BZYSAX'}
   components:
-  - type: DataGrid
-    properties:
-      role: null
-      columns:
-      - {id: YDQOGZ, title: Prefixes, data_key: prefix, $$hashKey: 'object:69729'}
-      - {id: JPGVYI, title: Enabled, data_key: enabled, $$hashKey: 'object:69995'}
-      - {id: PGODDC, title: Online, data_key: '', $$hashKey: 'object:69997'}
-      - {id: IHGIYW, title: Advertised, data_key: advertised, $$hashKey: 'object:69999'}
-      auto_header: true
-      tooltip: ''
-      border: ''
-      foreground: ''
-      rows_per_page: 20
-      visible: true
-      wrap_on: never
-      show_page_controls: true
-      spacing_above: small
-      spacing_below: small
-      background: ''
-    name: data_grid_machine_routes
-    layout_properties: {row: XUMFTA, width_xs: 10, col_xs: 1, width: 803.328125}
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Routes, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: true, icon: 'fa:map-signs'}
+    name: label_route
+    layout_properties: {row: NSJBFV, width_xs: 10, col_xs: 1, width: 803.328125}
+  - type: ColumnPanel
+    properties: {col_widths: '{}'}
+    name: column_panel_routes_container
+    layout_properties: {row: TISYJI, width_xs: 10, col_xs: 1}
     components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineDetail.RowTemplate2}
-      name: repeating_panel_machine_routes
-      layout_properties: {}
-      data_bindings: []
+    - type: DataGrid
+      properties:
+        role: null
+        columns:
+        - {id: YDQOGZ, title: Prefixes, data_key: prefix, $$hashKey: 'object:69729'}
+        - {id: JPGVYI, title: Enabled, data_key: enabled, $$hashKey: 'object:69995'}
+        - {id: PGODDC, title: Online, data_key: '', $$hashKey: 'object:69997'}
+        - {id: IHGIYW, title: Advertised, data_key: advertised, $$hashKey: 'object:69999'}
+        auto_header: true
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 20
+        visible: true
+        wrap_on: never
+        show_page_controls: true
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_machine_routes
+      layout_properties: {row: XUMFTA, width_xs: 10, col_xs: 1, width: 803.328125,
+        grid_position: 'EKACBV,AAEKYR'}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineDetail.RowTemplate2}
+        name: repeating_panel_machine_routes
+        layout_properties: {}
+        data_bindings: []
+  - type: ColumnPanel
+    properties: {col_widths: '{"YRYFIM":25,"VJHIWB":35,"DARJVK":25,"GMHCMT":35}'}
+    name: column_panel_1
+    layout_properties: {row: IDCJYU, width_xs: 6, col_xs: 3}
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Machine Name:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_machine_name
+      layout_properties: {grid_position: 'NBSRYO,YRYFIM'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Type a new Machine Name,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_machine_name
+      layout_properties: {grid_position: 'NBSRYO,VJHIWB'}
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Assigned User:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_machine_user
+      layout_properties: {grid_position: 'MRMLUU,DARJVK'}
+    - type: DropDown
+      properties: {}
+      name: drop_down_users
+      layout_properties: {grid_position: 'MRMLUU,GMHCMT'}
 is_package: true
