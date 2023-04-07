@@ -420,7 +420,7 @@ input[disabled] ~ span {
     border-radius: 5px;
     box-shadow: 5px -5px 19px -3px #CCAFED, 
     -5px 5px 19px -3px #7AD2E8;;
-    background-color: transparent;
+    background-color: #313438;
     background-image: url(https://milliner.badjholdings.com/_/theme/milliner_spinner.png) !important;
 }
 

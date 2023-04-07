@@ -135,6 +135,9 @@ db_schema:
     - name: api_key
       admin_ui: {order: 1, width: 200}
       type: string
+    - name: last_hs_sync
+      admin_ui: {order: 2, width: 200}
+      type: string
   hs_users:
     title: hs_users
     client: none

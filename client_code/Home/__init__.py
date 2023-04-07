@@ -12,12 +12,12 @@ from ..Settings import Settings
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
-    self.version = 'v.0.0.3'
+    self.version = 'v.0.1.0'
     fresh_install = anvil.server.call('check_users_table')
     self.url = [r['url'] for r in app_tables.settings.search()][0]
     self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
     self.item = anvil.server.call('get_machine_table').search(online=True)
-    self.user = None
+    self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.visible = False
@@ -26,8 +26,9 @@ class Home(HomeTemplate):
     else:
       anvil.users.login_with_form()
       self.visible = True
-    self.user = anvil.users.get_user()
+      self.user = anvil.users.get_user()
     self.link_user.text = self.user['email']
+    self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
     # Any code you write here will run before the form opens.
 
   def form_show(self, **event_args):
@@ -36,15 +37,6 @@ class Home(HomeTemplate):
       alert('No URL has been set. The application will not function until one is set in Settings.', title='No URL!')
     if self.api_key == "":
       alert('No API Key has been set. The application will not function until one is set in Settings.', title='No API Key!')  
-
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    status_returned = anvil.server.call('test_api_key', self.url, self.api_key)
-    if status_returned == 200:
-      status = f'{status_returned} - Connection Succesful'
-    else:
-      status = f'Unable to connect - {status_returned}. Please check your API key, URL, and CORS headers'
-    alert(status, title="API Test Results")
 
   def link_machines_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -77,6 +69,17 @@ class Home(HomeTemplate):
     """This method is called when the link is clicked"""
     self.column_panel_home.clear()
     self.column_panel_home.add_component(Settings())
+
+  def button_refresh_data_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    with Notification('Refreshing Data from Headscale'):
+      anvil.server.call('record_users')
+      anvil.server.call('record_machines')
+      anvil.server.call('record_routes')
+      self.item = anvil.server.call('get_machine_table').search(online=True)
+      self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
+      self.refresh_data_bindings()
+
 
 
 

@@ -66,6 +66,41 @@ components:
       layout_properties: {}
       data_bindings:
       - {property: items, code: self.item}
+    - type: GridPanel
+      properties: {spacing_above: none, spacing_below: none, background: '', foreground: '',
+        border: '', visible: true, role: null, tooltip: ''}
+      name: grid_panel_footer
+      layout_properties: {slot: footer}
+      components:
+      - type: Button
+        properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Refresh Data, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+          background: '', bold: false, underline: false, icon: 'fa:refresh'}
+        name: button_refresh_data
+        layout_properties: {row: WXHJII, width_xs: 3, col_xs: 0, width: 180.1875}
+        event_bindings: {click: button_refresh_data_click}
+      - type: ColumnPanel
+        properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+          wrap_on: mobile, col_spacing: medium, spacing_above: none, col_widths: '{"HILOMR":15,"WWHTIK":45}',
+          spacing_below: none, background: ''}
+        name: column_panel_2
+        layout_properties: {row: WXHJII, width_xs: 5, col_xs: 3, width: 320.3125}
+        components:
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'Last Sync:', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: none, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_sync
+          layout_properties: {grid_position: 'RIIETN,HILOMR'}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: none, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_sync_time
+          layout_properties: {grid_position: 'RIIETN,WWHTIK'}
 - type: Image
   properties: {role: null, vertical_align: center, height: 93, tooltip: '', border: '',
     foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
