@@ -54,7 +54,7 @@ components:
   layout_properties: {grid_position: 'NDGYIH,QPSALL', full_width_row: true}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Machines.RowTemplate2}
+    properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineRow}
     name: repeating_panel_machines
     layout_properties: {}
     data_bindings: []

@@ -1,0 +1,38 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: GridPanel
+  properties: {}
+  name: grid_panel_container
+  layout_properties: {grid_position: 'ONHNCD,BZYSAX'}
+  components:
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: YDQOGZ, title: Prefixes, data_key: prefixes, $$hashKey: 'object:69729'}
+      - {id: JPGVYI, title: Enabled, data_key: enabled, $$hashKey: 'object:69995'}
+      - {id: PGODDC, title: Online, data_key: online, $$hashKey: 'object:69997'}
+      - {id: IHGIYW, title: Advertised, data_key: advertised, $$hashKey: 'object:69999'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_machine_routes
+    layout_properties: {row: XUMFTA, width_xs: 10, col_xs: 1, width: 803.328125}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineDetail.RowTemplate2}
+      name: repeating_panel_machine_routes
+      layout_properties: {}
+      data_bindings:
+      - {property: items, code: self.item}
+is_package: true

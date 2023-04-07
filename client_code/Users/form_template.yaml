@@ -34,7 +34,7 @@ components:
   layout_properties: {grid_position: 'AMHIAO,EPUTYC'}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Users.RowTemplate5}
+    properties: {spacing_above: none, spacing_below: none, item_template: Users.UserRow}
     name: repeating_panel_users
     layout_properties: {}
     data_bindings:

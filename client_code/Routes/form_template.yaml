@@ -36,7 +36,7 @@ components:
   layout_properties: {grid_position: 'YDXYZE,QBBMJZ'}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Routes.RowTemplate3}
+    properties: {spacing_above: none, spacing_below: none, item_template: Routes.RouteRow}
     name: repeating_panel_routes
     layout_properties: {}
 is_package: true

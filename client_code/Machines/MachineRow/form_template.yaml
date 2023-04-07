@@ -9,4 +9,5 @@ components:
   layout_properties: {column: RWBSWP}
   data_bindings:
   - {property: text, code: 'self.item[''id'']'}
+  event_bindings: {click: link_machine_id_click}
 is_package: true

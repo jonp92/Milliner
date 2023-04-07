@@ -60,7 +60,7 @@ def record_machines():
 def record_users():
   url = [r['url'] for r in app_tables.settings.search()][0]
   api_key = [r['api_key'] for r in app_tables.settings.search()][0]
-  data=anvil.server.call('get_users', url, api_key)
+  data = anvil.server.call('get_users', url, api_key)
   for user in data['users']:
     user_row = app_tables.hs_users.get(id=user['id'])
     if user_row:
@@ -73,7 +73,7 @@ def record_users():
 def record_routes():
   url = [r['url'] for r in app_tables.settings.search()][0]
   api_key = [r['api_key'] for r in app_tables.settings.search()][0]
-  data=anvil.server.call('get_routes', url, api_key)
+  data = anvil.server.call('get_routes', url, api_key)
   for route in data['routes']:
     route_row = app_tables.routes.get(id=int(route['id']))
     if route_row:

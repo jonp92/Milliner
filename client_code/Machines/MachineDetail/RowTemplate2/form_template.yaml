@@ -1,0 +1,19 @@
+container: {type: DataRowPanel}
+components:
+- type: Label
+  properties: {}
+  name: label_prefixes
+  layout_properties: {column: YDQOGZ}
+- type: Label
+  properties: {}
+  name: label_enabled
+  layout_properties: {column: JPGVYI}
+- type: Label
+  properties: {}
+  name: label_online
+  layout_properties: {column: PGODDC}
+- type: Label
+  properties: {}
+  name: label_advertised
+  layout_properties: {column: IHGIYW}
+is_package: true
