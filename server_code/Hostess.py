@@ -54,4 +54,8 @@ def add_appuser(email, enabled, confirmed_email, password):
   # Hashing the password
   password_hash = bcrypt.hashpw(bytes, salt)
   app_tables.users.add_row(email=email, enabled=enabled, confirmed_email=confirmed_email, password_hash=password_hash.decode('utf-8'))
+
+@anvil.server.callable
+def delete_hs_table_row(item):
+  item.delete()
   

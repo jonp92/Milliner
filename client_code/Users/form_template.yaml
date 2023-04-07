@@ -54,14 +54,17 @@ components:
         col_xs: 0, width: 613.046875}
       components:
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
           visible: true, text: 'Username:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: true, icon: ''}
         name: label_username
         layout_properties: {grid_position: 'YXLDXX,TAWCJI'}
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Type a new Username,
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: text_box_username
         layout_properties: {grid_position: 'YXLDXX,VYGRLX'}
       - type: Button
