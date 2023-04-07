@@ -20,5 +20,4 @@ class RowTemplate3(RowTemplate3Template):
     anvil.server.call('update_route', self.url, self.api_key, self.item['id'], self.check_box_enabled.checked)
     anvil.server.call('record_routes')
     self.parent.raise_event('x-refresh')
-    self.refresh_data_bindings()
 

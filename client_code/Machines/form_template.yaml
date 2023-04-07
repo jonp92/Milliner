@@ -15,7 +15,7 @@ components:
   properties:
     role: null
     columns:
-    - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '50',
+    - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '60',
       expand: false}
     - {id: IYECDI, title: Name, data_key: name, $$hashKey: 'object:672', width: '100',
       expand: true}

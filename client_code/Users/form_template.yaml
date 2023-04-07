@@ -15,7 +15,7 @@ components:
   properties:
     role: null
     columns:
-    - {id: YPYGTV, title: Id, data_key: id, $$hashKey: 'object:6845', width: '50'}
+    - {id: YPYGTV, title: Id, data_key: id, $$hashKey: 'object:6845', width: '60'}
     - {id: UTJRUA, title: Name, data_key: name, $$hashKey: 'object:6846', width: '150',
       expand: true}
     - {id: GYHKRI, title: CreatedAt, data_key: createdAt, $$hashKey: 'object:6847',

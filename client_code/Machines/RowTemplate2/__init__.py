@@ -12,3 +12,6 @@ class RowTemplate2(RowTemplate2Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+
+
