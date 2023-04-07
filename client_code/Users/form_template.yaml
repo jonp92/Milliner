@@ -38,5 +38,6 @@ components:
     properties: {spacing_above: none, spacing_below: none, item_template: Machines.RowTemplate2}
     name: repeating_panel_users
     layout_properties: {}
-    data_bindings: []
+    data_bindings:
+    - {property: items, code: self.item}
 is_package: true

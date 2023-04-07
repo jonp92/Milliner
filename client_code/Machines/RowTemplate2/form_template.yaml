@@ -1,3 +1,15 @@
 container: {type: DataRowPanel}
-components: []
+components:
+- type: Link
+  properties: {}
+  name: link_user_id
+  layout_properties: {column: YPYGTV}
+  data_bindings:
+  - {property: text, code: 'self.item[''id'']'}
+- type: Link
+  properties: {}
+  name: link_machine_id
+  layout_properties: {column: RWBSWP}
+  data_bindings:
+  - {property: text, code: 'self.item[''id'']'}
 is_package: true
