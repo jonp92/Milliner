@@ -15,7 +15,6 @@ class AppUsersTemplate(AppUsersTemplateTemplate):
     # Any code you write here will run before the form opens.
   def refresh_data(self, **event_args):
     self.data_row_panel_view.item = self.item
-    self.refresh_data_bindings()
     
   def button_edit_click(self, **event_args):
     """This method is called when the button is clicked"""

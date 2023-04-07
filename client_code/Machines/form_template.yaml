@@ -17,7 +17,7 @@ components:
     columns:
     - {id: RWBSWP, title: Id, data_key: id, $$hashKey: 'object:686', width: '60',
       expand: false}
-    - {id: IYECDI, title: Name, data_key: name, $$hashKey: 'object:672', width: '100',
+    - {id: IYECDI, title: Name, data_key: givenName, $$hashKey: 'object:672', width: '100',
       expand: true}
     - {id: UAIMLQ, title: IpAddr, data_key: ipAddr, $$hashKey: 'object:673', expand: false,
       width: '150'}

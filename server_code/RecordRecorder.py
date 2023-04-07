@@ -77,6 +77,6 @@ def record_routes():
   for route in data['routes']:
     route_row = app_tables.routes.get(id=int(route['id']))
     if route_row:
-      route_row.update(id=int(route['id']), machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
+      route_row.update(id=int(route['id']), machineName=route['machine']['name'], givenName=route['machine']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
     else:
-      app_tables.routes.add_row(id=int(route['id']), machineName=route['machine']['name'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
+      app_tables.routes.add_row(id=int(route['id']), machineName=route['machine']['name'], givenName=route['machine']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])

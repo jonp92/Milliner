@@ -16,7 +16,7 @@ class Users(UsersTemplate):
 
   def refresh_data(self, **event_args):
     self.item = anvil.server.call('get_hs_users_table').search()
-    self.refresh_data_bindings()
+    
   def button_save_new_user_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.url = [r['url'] for r in app_tables.settings.search()][0]
@@ -28,7 +28,6 @@ class Users(UsersTemplate):
       Notification(f'Username {self.text_box_username.text} added succesfully').show()
       anvil.server.call('record_users')
       self.item = anvil.server.call('get_hs_users_table').search()
-      self.refresh_data_bindings()
       self.column_panel_new_user.visible = False
       self.button_add_user.visible = True
     else:

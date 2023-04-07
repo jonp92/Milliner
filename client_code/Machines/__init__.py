@@ -11,12 +11,19 @@ class Machines(MachinesTemplate):
     self.url = [r['url'] for r in app_tables.settings.search()][0]
     self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
     self.item = anvil.server.call('get_machine_table')
+    self.repeating_panel_machines.set_event_handler('x-refresh', self.refresh_data)
     self.init_components(**properties)
     self.repeating_panel_machines.items = self.item.search()
+    
     self.drop_down_1.items = [r['name'] for r in anvil.server.call('get_hs_users_table').search()]
 
     # Any code you write here will run before the form opens.
 
+  def refresh_data(self, **event_args):
+    anvil.server.call('record_machines')
+    self.item = anvil.server.call('get_machine_table')
+    self.repeating_panel_machines.items = self.item.search()
+    
   def button_add_machine_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.column_panel_add_machine.visible = True

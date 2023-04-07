@@ -78,7 +78,6 @@ class Home(HomeTemplate):
       anvil.server.call('record_routes')
       self.item = anvil.server.call('get_machine_table').search(online=True)
       self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
-      self.refresh_data_bindings()
 
 
 

@@ -27,5 +27,4 @@ class AppUsers(AppUsersTemplate):
       with Notification('Adding User ' + self.users['email'], timeout=3, style='success'):
         anvil.server.call('add_appuser', self.users['email'], self.users['enabled'], True, self.users['password'])
         self.refresh_data()
-        self.refresh_data_bindings()
   

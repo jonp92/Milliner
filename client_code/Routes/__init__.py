@@ -13,6 +13,7 @@ class Routes(RoutesTemplate):
     self.init_components(**properties)
     self.repeating_panel_routes.add_event_handler('x-refresh', self.refresh_data)
     self.repeating_panel_routes.items = self.item.search()
+    print(self.item.search()[0])
     # Any code you write here will run before the form opens.
 
   def refresh_data(self, **event_args):

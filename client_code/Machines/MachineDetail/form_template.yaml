@@ -48,9 +48,9 @@ components:
         layout_properties: {}
         data_bindings: []
   - type: ColumnPanel
-    properties: {col_widths: '{"YRYFIM":25,"VJHIWB":35,"DARJVK":25,"GMHCMT":35}'}
-    name: column_panel_1
-    layout_properties: {row: IDCJYU, width_xs: 6, col_xs: 3}
+    properties: {col_widths: '{"YRYFIM":25,"VJHIWB":35,"DARJVK":25,"GMHCMT":35,"SCBUZS":40,"IUGNIW":20}'}
+    name: column_panel_machine_settings
+    layout_properties: {row: IDCJYU, width_xs: 7, col_xs: 1}
     components:
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -58,23 +58,32 @@ components:
         icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
         underline: false, icon: ''}
       name: label_machine_name
-      layout_properties: {grid_position: 'NBSRYO,YRYFIM'}
+      layout_properties: {grid_position: 'GXMMUB,SCBUZS NBSRYO,YRYFIM'}
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Type a new Machine Name,
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: text_box_machine_name
-      layout_properties: {grid_position: 'NBSRYO,VJHIWB'}
+      layout_properties: {grid_position: 'GXMMUB,SCBUZS NBSRYO,VJHIWB'}
+      event_bindings: {change: text_box_machine_name_change}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Assigned User:', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: true, background: '', bold: false,
         underline: false, icon: ''}
       name: label_machine_user
-      layout_properties: {grid_position: 'MRMLUU,DARJVK'}
+      layout_properties: {grid_position: 'GXMMUB,SCBUZS MRMLUU,DARJVK'}
     - type: DropDown
       properties: {}
       name: drop_down_users
-      layout_properties: {grid_position: 'MRMLUU,GMHCMT'}
+      layout_properties: {grid_position: 'GXMMUB,SCBUZS MRMLUU,GMHCMT'}
+    - type: Button
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Update, font_size: null, font: '', spacing_above: medium,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:floppy-o'}
+      name: button_update_machine_settings
+      layout_properties: {grid_position: 'GXMMUB,IUGNIW'}
+      event_bindings: {click: button_update_machine_settings_click}
 is_package: true

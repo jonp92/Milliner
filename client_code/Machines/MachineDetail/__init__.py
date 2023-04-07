@@ -15,8 +15,8 @@ class MachineDetail(MachineDetailTemplate):
     self.machine = machine_row
     self.init_components(**properties)
     if self.item == {'routes': []}:
-      self.grid_panel_container.clear()
-      self.grid_panel_container.add_component(Label(text='This machine does not have any routes registered in Headscale.'))      
+      self.column_panel_routes_container.clear()
+      self.column_panel_routes_container.add_component(Label(text='This machine does not have any routes registered in Headscale.'))      
       self.drop_down_users.items = [r['name'] for r in anvil.server.call('get_hs_users_table').search()]
       self.drop_down_users.selected_value = self.machine['user']
     else:
@@ -24,3 +24,18 @@ class MachineDetail(MachineDetailTemplate):
       self.drop_down_users.items = [r['name'] for r in anvil.server.call('get_hs_users_table').search()]
       self.drop_down_users.selected_value = self.machine['user']
     # Any code you write here will run before the form opens.
+  
+  def button_update_machine_settings_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.raise_event("x-close-alert", value=True)
+    if self.text_box_machine_name.tag == True:
+      anvil.server.call('rename_machine', self.url, self.api_key, self.machine['id'], self.text_box_machine_name.text)
+      anvil.server.call('move_user', self.url, self. api_key, self.machine['id'], self.drop_down_users.selected_value)
+    else:
+      anvil.server.call('move_user', self.url, self. api_key, self.machine['id'], self.drop_down_users.selected_value)
+      
+  def text_box_machine_name_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+    self.text_box_machine_name.tag = True
+
+
