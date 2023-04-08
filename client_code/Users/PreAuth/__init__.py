@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from .GenerateKey import GenerateKey
 
+
 class PreAuth(PreAuthTemplate):
   def __init__(self, user_name, **properties):
     # Set Form properties and Data Bindings.
@@ -33,7 +34,8 @@ class PreAuth(PreAuthTemplate):
     """This method is called when the button is clicked"""
     generate_decision = alert(GenerateKey(item=self.item), title='Select a User to generate a new PreAuth key', buttons=[('Ok', True),('Cancel', False)])
     if generate_decision:
-      json_string = '{"user": "'+self.item['selected_user']+'", "reusable": "'+self.item['is_reusable']+'", "ephemeral": "'+self.item['is_ephemeral']+'", "expiration": "2023-07-07T20:08:33Z", "acl_tags": "none"}'
+      #expiration_time = anvil.server.call('generate_expiration_date', int(self.item['expiration_date']), self.item)
+      json_string = '{"user": "'+self.item['selected_user']+'", "reusable": "'+self.item['is_reusable']+'", "ephemeral": "'+self.item['is_ephemeral']+'", "expiration": "'+self.item['expiration_date']+'", "acl_tags": ""}'
       key_dict = {'user': self.item['selected_user'], 'reusable': self.item['is_reusable'], 'ephemeral': self.item['is_ephemeral'], 'expiration': self.item['expiration_date']}
       Notification(anvil.server.call('add_preauth_key', self.url, self.api_key, json_string), timeout=7).show()
       

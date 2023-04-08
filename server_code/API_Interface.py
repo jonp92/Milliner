@@ -4,8 +4,10 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import requests
-from datetime import timedelta, date
+from datetime import timedelta, date, datetime
 from dateutil import parser
+import google.protobuf.timestamp_pb2 as timestamp_pb2
+
 
 ##################################################################
 # Functions related to HEADSCALE and API KEYS
@@ -367,6 +369,9 @@ def get_preauth_keys(url, api_key, user_name):
 # and "reusable" with the expiration date "date" contained in the JSON payload "data"
 def add_preauth_key(url, api_key, data):
     print("Adding PreAuth Key:  %s", str(data))
+    expiration_time = generate_expiration_date()
+    data = '{"user": "jonathan", "reusable": "False", "ephemeral": "False", "expiration": "2023-04-10 00:00:00 +0000 UTC", "acl_tags": "[]"}'
+    print(data)
     response = requests.post(
         str(url)+"/api/v1/preauthkey",
         data=data,
@@ -401,3 +406,14 @@ def expire_preauth_key(url, api_key, data):
     print("expire_preauth_key - Return:  "+str(response.json()))
     print("expire_preauth_key - Status:  "+str(status))
     return {"status": status, "body": response.json()}
+
+@anvil.server.callable
+def generate_expiration_date():
+  # Calculate the Unix timestamp 90 days from now
+  unix_time_90_days_from_now = int((datetime.now() + timedelta(days=90)).strftime('%s'))
+  print(unix_time_90_days_from_now)
+  # Create a Timestamp object for the expiration time
+  expiration_time = timestamp_pb2.Timestamp()
+  expiration_time.seconds = unix_time_90_days_from_now
+  expiration_str = f"seconds: {expiration_time.seconds}, nanos: {expiration_time.nanos}"
+  return expiration_time

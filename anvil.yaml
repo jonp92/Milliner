@@ -29,7 +29,11 @@ startup: {type: form, module: Home}
 package_name: Milliner
 allow_embedding: false
 name: Milliner
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: {base: python310-standard}
 metadata: {title: Milliner, description: A simple UI to control a Headscale implementation.,
   logo_img: 'asset:milliner_logo.png'}
 startup_form: null
