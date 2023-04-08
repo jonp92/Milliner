@@ -7,7 +7,6 @@ import requests
 from datetime import timedelta, date
 from dateutil import parser
 
-
 ##################################################################
 # Functions related to HEADSCALE and API KEYS
 ##################################################################
@@ -382,6 +381,7 @@ def add_preauth_key(url, api_key, data):
         print("PreAuth Key added.")
     else:
         print("Adding PreAuth Key failed!")
+    print(response)
     return {"status": status, "body": response.json()}
 
 @anvil.server.callable  

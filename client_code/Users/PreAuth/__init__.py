@@ -33,8 +33,10 @@ class PreAuth(PreAuthTemplate):
     """This method is called when the button is clicked"""
     generate_decision = alert(GenerateKey(item=self.item), title='Select a User to generate a new PreAuth key', buttons=[('Ok', True),('Cancel', False)])
     if generate_decision:
-      json_string = '{"user": "'+self.item['selected_user']+'", "reusable": "'+self.item['is_reusable']+'", "ephemeral": "'+self.item['is_ephemeral']+'", "expiration": "'+self.item['expiration_date']+'"}'
+      json_string = '{"user": "'+self.item['selected_user']+'", "reusable": "'+self.item['is_reusable']+'", "ephemeral": "'+self.item['is_ephemeral']+'", "expiration": "2023-07-07T20:08:33Z", "acl_tags": "none"}'
+      key_dict = {'user': self.item['selected_user'], 'reusable': self.item['is_reusable'], 'ephemeral': self.item['is_ephemeral'], 'expiration': self.item['expiration_date']}
       Notification(anvil.server.call('add_preauth_key', self.url, self.api_key, json_string), timeout=7).show()
+      
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     selected = self.get_selected_rows()
