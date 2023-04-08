@@ -369,8 +369,8 @@ def get_preauth_keys(url, api_key, user_name):
 # and "reusable" with the expiration date "date" contained in the JSON payload "data"
 def add_preauth_key(url, api_key, data):
     print("Adding PreAuth Key:  %s", str(data))
-    expiration_time = generate_expiration_date()
-    data = '{"user": "jonathan", "reusable": "False", "ephemeral": "False", "expiration": "2023-04-10 00:00:00 +0000 UTC", "acl_tags": "[]"}'
+    #expiration_time = generate_expiration_date()
+    data = '{"user": "jonathan", "ephermeral": "False", "reusable": "False", "date": "1688737102"}'
     print(data)
     response = requests.post(
         str(url)+"/api/v1/preauthkey",
