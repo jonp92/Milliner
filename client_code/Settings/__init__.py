@@ -32,6 +32,7 @@ class Settings(SettingsTemplate):
       settings_row = app_tables.settings.get()
       settings_row.update(url=self.item['url'], api_key=self.item['api_key'])
       self.refresh_data_bindings()
+      
   def button_test_api_click(self, **event_args):
     """This method is called when the button is clicked"""
     status_returned = anvil.server.call('test_api_key', self.item['url'], self.item['api_key'])
@@ -45,6 +46,18 @@ class Settings(SettingsTemplate):
     """This method is called when the button is clicked"""
     self.clear()
     self.add_component(AppUsers())
+
+  def button_renew_api_key_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    result, response, new_api_key = anvil.server.call('renew_api_key', self.item['url'], self.item['api_key'])
+    if result == True and response == 'Key updated and validated':
+      anvil.server.call('update_api_key_settings', new_api_key)
+      self.item['api_key'] = [r['api_key'] for r in app_tables.settings.search()][0]
+      Notification(response, timeout=3).show()
+    elif result == True:
+      Notification(response, timeout=3).show()
+    elif result == False:
+      Notification(response, timeout=3).show()
 
 
       

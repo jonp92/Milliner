@@ -63,4 +63,9 @@ def delete_hs_table_row(item):
 def delete_machine_row(machine_id):
   machine_row = app_tables.machines.get(id=machine_id)
   machine_row.delete()
+
+@anvil.server.callable
+def update_api_key_settings(new_api_key):
+  app_tables.settings.get().update(api_key=new_api_key)
+  
   

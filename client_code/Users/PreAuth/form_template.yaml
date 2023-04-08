@@ -1,0 +1,33 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: YKFNKO, title: Ephemeral, data_key: ephemeral, $$hashKey: 'object:60008'}
+    - {id: PJIVNW, title: Key, data_key: key, $$hashKey: 'object:60009'}
+    - {id: WWADRM, title: Expiration, data_key: expiration, $$hashKey: 'object:60010'}
+    - {id: OLEACZ, title: Created At, data_key: createdAt, $$hashKey: 'object:60044'}
+    - {id: EKKGHH, title: Reusable, data_key: reusable, $$hashKey: 'object:60046'}
+    - {id: KQKAWX, title: Used, data_key: used, $$hashKey: 'object:60048'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties: {grid_position: 'LVOVJJ,TIMEFJ'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: Users.PreAuth.RowTemplate2}
+    name: repeating_panel_1
+    layout_properties: {}
+is_package: true

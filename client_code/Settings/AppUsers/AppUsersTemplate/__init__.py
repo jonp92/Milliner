@@ -23,7 +23,6 @@ class AppUsersTemplate(AppUsersTemplateTemplate):
 
   def button_save_user_edit_click(self, **event_args):
     """This method is called when the button is clicked"""
-    print(self.text_box_password.text)
     if self.text_box_password.text == '':
       anvil.server.call('update_app_user', self.text_box_email.text, self.item, False, None)
     else:

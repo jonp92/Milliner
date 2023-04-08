@@ -33,12 +33,6 @@ components:
       expand: true, width: '175'}
     - {id: WWESIH, title: LastSeen, data_key: lastSeen, $$hashKey: 'object:683', expand: true,
       width: '175'}
-    - {id: XDPHNX, title: InvalidTags, data_key: invalidTags, $$hashKey: 'object:679',
-      width: '100', expand: false}
-    - {id: QADIOS, title: ForcedTags, data_key: forcedTags, $$hashKey: 'object:681',
-      width: '100', expand: false}
-    - {id: MYQOAM, title: ValidTags, data_key: validTags, $$hashKey: 'object:689',
-      width: '100'}
     auto_header: true
     tooltip: ''
     border: ''

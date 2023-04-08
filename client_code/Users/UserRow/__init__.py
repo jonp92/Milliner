@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..PreAuth import PreAuth
 
 class UserRow(UserRowTemplate):
   def __init__(self, **properties):
@@ -35,6 +36,11 @@ class UserRow(UserRowTemplate):
     """This method is called when the link is clicked"""
     self.data_row_panel_view.visible = False
     self.data_row_panel_edit.visible = True
+
+  def button_preauth_keys_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    alert(PreAuth(self.label_name.text), large=True)
+
 
 
   

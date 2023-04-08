@@ -4,6 +4,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import requests
+from datetime import timedelta, date
+from dateutil import parser
 
 
 ##################################################################
@@ -82,14 +84,14 @@ def renew_api_key(url, api_key):
             print("The new key is valid and we are writing it to the file")
             if not set_api_key(new_key["apiKey"]):
                 print("We failed writing the new key!")
-                return False # Key write failed
+                return False, 'Key write failed', ''
             print("Key validated and written.  Moving to expire the key.")
             expire_key(url, api_key)
-            return True     # Key updated and validated
+            return True, 'Key updated and validated', new_key['apiKey'] 
         else: 
             print("Testing the API key failed.")
-            return False  # The API Key test failed
-    else: return True       # No work is required
+            return False, 'The API Key test failed', ''
+    else: return True, 'No Update Required', ''       # No work is required
 
 # Gets information about the current API key
 @anvil.server.callable

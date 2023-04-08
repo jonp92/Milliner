@@ -14,12 +14,12 @@ components:
     layout_properties: {grid_position: 'EILTKL,NMJNVE'}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Headscale Server Settings:', font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: true, icon: ''}
       name: label_header1
-      layout_properties: {row: SBYKCF, width_xs: 12, col_xs: 0, width: 970}
+      layout_properties: {row: SBYKCF, width_xs: 12, col_xs: 0, width: 750}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Headscale Server URL:', font_size: null, font: '', spacing_above: small,
@@ -47,12 +47,20 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''api_key'']', writeback: true}
     - type: Button
-      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Renew API Key, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:refresh'}
+      name: button_renew_api_key
+      layout_properties: {row: GILCGU, width_xs: 3, col_xs: 0, width: 229.988}
+      event_bindings: {click: button_renew_api_key_click}
+    - type: Button
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Test API, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:cog'}
       name: button_test_api
-      layout_properties: {row: GILCGU, width_xs: 2, col_xs: 7, width: 136.65625}
+      layout_properties: {row: GILCGU, width_xs: 2, col_xs: 3, width: 99.9875}
       event_bindings: {click: button_test_api_click}
     - type: Button
       properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
@@ -63,18 +71,18 @@ components:
       layout_properties: {row: GILCGU, width_xs: 2, col_xs: 9, width: 136.65625}
       event_bindings: {click: button_save_click}
     - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Milliner Settings:', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: true, icon: ''}
       name: label_app_users
-      layout_properties: {row: FMZJBQ, width_xs: 12, col_xs: 0, width: 970}
+      layout_properties: {row: FMZJBQ, width_xs: 12, col_xs: 0, width: 750}
     - type: Button
-      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Milliner Users, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:users'}
       name: button_app_users
-      layout_properties: {row: YCCUCA, width_xs: 3, col_xs: 8, width: 220}
+      layout_properties: {row: YCCUCA, width_xs: 3, col_xs: 0, width: 165}
       event_bindings: {click: button_app_users_click}
 is_package: true

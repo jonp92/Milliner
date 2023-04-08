@@ -23,6 +23,12 @@ components:
     - {property: text, code: 'self.item[''id'']'}
     components: []
     event_bindings: {click: link_id_click}
+  - type: Label
+    properties: {}
+    name: label_name
+    layout_properties: {column: VHVAOD}
+    data_bindings:
+    - {property: text, code: 'self.item[''name'']'}
   data_bindings:
   - {property: item, code: self.item}
 - type: DataRowPanel
@@ -46,14 +52,27 @@ components:
     name: grid_panel_1
     layout_properties: {column: null}
     components:
-    - type: Button
-      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Delete User, font_size: null, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: 'fa:trash'}
-      name: button_delete_user
-      layout_properties: {row: JGAIMY, width_xs: 3, col_xs: 0, width: 213.5}
-      event_bindings: {click: button_delete_user_click}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_1
+      layout_properties: {row: JGAIMY, width_xs: 5, col_xs: 0}
+      components:
+      - type: Button
+        properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Delete User, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: 'fa:trash'}
+        name: button_delete_user
+        layout_properties: {row: JGAIMY, width_xs: 3, col_xs: 0, width: 158.5, grid_position: 'BICXUX,RLVHZW'}
+        event_bindings: {click: button_delete_user_click}
+      - type: Button
+        properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Pre-Auth Keys, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: 'fa:key'}
+        name: button_preauth_keys
+        layout_properties: {row: JGAIMY, width_xs: 3, col_xs: 3, width: 158.5, grid_position: 'BICXUX,JHSEFB'}
+        event_bindings: {click: button_preauth_keys_click}
     - type: Button
       properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Cancel, font_size: null, font: '', spacing_above: small,
