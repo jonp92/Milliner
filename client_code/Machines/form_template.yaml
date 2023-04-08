@@ -4,6 +4,10 @@ container:
     wrap_on: mobile, col_spacing: tiny, spacing_above: small, col_widths: '{}', spacing_below: small,
     background: ''}
 components:
+- type: form:Home.Header
+  properties: {}
+  name: header_1
+  layout_properties: {grid_position: 'SQMKIS,LVQUDV', full_width_row: true}
 - type: Label
   properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: Machines, font_size: null, font: '', spacing_above: none,
@@ -48,39 +52,45 @@ components:
   layout_properties: {grid_position: 'NDGYIH,QPSALL', full_width_row: true}
   components:
   - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: Machines.MachineRow}
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: none, spacing_below: none, item_template: Machines.MachineRow,
+      background: ''}
     name: repeating_panel_machines
     layout_properties: {}
     data_bindings: []
   - type: GridPanel
-    properties: {}
+    properties: {spacing_above: small, spacing_below: none, background: '', foreground: '',
+      border: '', visible: true, role: null, tooltip: ''}
     name: grid_panel_1
     layout_properties: {slot: footer}
     components:
     - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Add Machine, font_size: null, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        spacing_above: small, icon_align: left, spacing_below: none, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:desktop'}
       name: button_add_machine
-      layout_properties: {row: UCOPAM, width_xs: 3, col_xs: 0, width: 221.59375}
+      layout_properties: {row: UCOPAM, width_xs: 3, col_xs: 0, width: 216.84375}
       event_bindings: {click: button_add_machine_click}
     - type: ColumnPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"RANRWU":10,"ZZSNKO":70,"GEFRIH":5,"WGLSKD":20,"NTPOIQ":10,"XEBUHN":10}',
         spacing_below: small, background: ''}
       name: column_panel_add_machine
-      layout_properties: {row: ETSIAM, width_xs: 12, col_xs: 0, width: 640.9375}
+      layout_properties: {row: ETSIAM, width_xs: 12, col_xs: 0, width: 933.40625}
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'NodeKey:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          visible: true, text: 'NodeKey:', font_size: null, font: '', spacing_above: none,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_1
         layout_properties: {grid_position: 'CXZNMP,RANRWU'}
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: none, type: text, spacing_below: none, italic: false,
+          background: '', bold: false, underline: false}
         name: text_box_nodekey
         layout_properties: {grid_position: 'CXZNMP,ZZSNKO'}
         event_bindings: {}
@@ -90,20 +100,38 @@ components:
         layout_properties: {grid_position: 'CXZNMP,XEBUHN'}
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'User:', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          visible: true, text: 'User:', font_size: null, font: '', spacing_above: none,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_user
         layout_properties: {grid_position: 'IVFPJK,GEFRIH'}
       - type: DropDown
-        properties: {}
+        properties:
+          role: null
+          align: full
+          tooltip: ''
+          placeholder: ''
+          border: ''
+          enabled: true
+          foreground: ''
+          items: []
+          visible: true
+          font_size: null
+          font: ''
+          spacing_above: none
+          spacing_below: none
+          italic: false
+          background: ''
+          bold: false
+          underline: false
+          include_placeholder: false
         name: drop_down_user
         layout_properties: {grid_position: 'IVFPJK,ZCFRPW'}
         event_bindings: {}
       - type: Button
         properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
           foreground: '', visible: true, text: Cancel, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          spacing_above: none, icon_align: left, spacing_below: none, italic: false,
           background: '', bold: false, underline: false, icon: 'fa:times-circle'}
         name: button_cancel
         layout_properties: {row: UCOPAM, width_xs: 2, col_xs: 3, width: 137.734375,
@@ -111,7 +139,7 @@ components:
         event_bindings: {click: button_cancel_click}
       - type: Button
         properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
-          foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: small,
+          foreground: '', visible: true, text: Save, font_size: null, font: '', spacing_above: none,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: 'fa:floppy-o'}
         name: button_save_new_machine

@@ -41,7 +41,7 @@ class UserRow(UserRowTemplate):
     """This method is called when the button is clicked"""
     form = get_open_form()
     form.column_panel_home.clear()
-    form.column_panel_home.add_component(PreAuth(self.label_name.text), full_width_row=True)
+    form.column_panel_home.add_component(PreAuth(self.label_name.text))
     #alert(PreAuth(self.label_name.text), large=True)
 
 

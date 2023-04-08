@@ -27,7 +27,6 @@ class Home(HomeTemplate):
       anvil.users.login_with_form()
       self.visible = True
       self.user = anvil.users.get_user()
-    self.link_user.text = self.user['email']
     self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
     # Any code you write here will run before the form opens.
 

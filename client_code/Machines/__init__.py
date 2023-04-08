@@ -37,6 +37,8 @@ class Machines(MachinesTemplate):
 
 
 
+
+
     
 
 

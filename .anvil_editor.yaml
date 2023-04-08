@@ -19,6 +19,7 @@ unique_ids:
     Settings.AppUsers.AppUsersTemplate: '1680808528309286578763962.20306'
     Machines.MachineDetail.MachineRouteRow: '1680879268230914845955877.3297'
     Home: HX4XYKOBKDJLASEPJRK5E47RME4D2VT3
+    Home.Header: '168097609810740373230911.51868'
   modules: {}
   server_modules:
     API_Interface: '1680742140322703776832328.0709'
