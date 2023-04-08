@@ -38,4 +38,13 @@ class MachineDetail(MachineDetailTemplate):
     """This method is called when the text in this text box is edited"""
     self.text_box_machine_name.tag = True
 
+  def button_delete_machine_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    answer = confirm('Are you sure you want to delete ' + self.machine['givenName'])
+    if answer:
+      anvil.server.call('delete_machine', self.url, self.api_key, self.machine['id'])
+      self.machine.delete()
+      self.raise_event("x-close-alert", value=True)
+
+
 

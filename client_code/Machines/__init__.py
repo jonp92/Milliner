@@ -13,10 +13,8 @@ class Machines(MachinesTemplate):
     self.item = anvil.server.call('get_machine_table')
     self.repeating_panel_machines.set_event_handler('x-refresh', self.refresh_data)
     self.init_components(**properties)
-    self.repeating_panel_machines.items = self.item.search()
-    
-    self.drop_down_1.items = [r['name'] for r in anvil.server.call('get_hs_users_table').search()]
-
+    self.repeating_panel_machines.items = self.item.search()    
+    self.drop_down_user.items = [r['name'] for r in anvil.server.call('get_hs_users_table').search()]
     # Any code you write here will run before the form opens.
 
   def refresh_data(self, **event_args):

@@ -5,6 +5,8 @@ from anvil.tables import app_tables
 import anvil.server
 import json
 
+url = [r['url'] for r in app_tables.settings.search()][0]
+api_key = [r['api_key'] for r in app_tables.settings.search()][0]
 
 @anvil.server.callable
 @anvil.server.background_task
@@ -13,8 +15,6 @@ def record_machines():
   now = datetime.datetime.now()
   date_string = now.strftime("%Y-%m-%d")
   time_string =now.strftime("%H:%M:%S")
-  url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data=anvil.server.call('get_machines', url, api_key)
   for machine in data['machines']:
     machine_row = app_tables.machines.get(id=machine['id'])
@@ -52,8 +52,9 @@ def record_machines():
                                 forcedTags = machine['forcedTags'],
                                 nodeKey = machine['nodeKey'],
                                 preAuthKey= machine['preAuthKey'])
+    response = anvil.server.call('get_api_key_info', url, api_key)
     settings_row = app_tables.settings.get()
-    settings_row.update(last_hs_sync=f'{date_string}-{time_string}')
+    settings_row.update(last_hs_sync=f'{date_string}-{time_string}', api_key_creation=response['createdAt'], api_key_expiration=response['expiration'])
 
 @anvil.server.callable
 @anvil.server.background_task

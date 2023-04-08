@@ -17,6 +17,14 @@ components:
     name: grid_panel_1
     layout_properties: {grid_position: 'KBOIBO,YBDPJB', full_width_row: true}
     components:
+    - type: Button
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: TEST, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: button_test_function
+      layout_properties: {row: MTYIAE, width_xs: 2, col_xs: 1, width: 131.71875}
+      event_bindings: {click: button_test_function_click}
     - type: Link
       properties: {role: null, url: '', align: right, tooltip: '', border: '', foreground: '',
         visible: true, text: Users, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,

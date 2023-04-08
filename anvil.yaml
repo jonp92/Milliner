@@ -113,7 +113,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: n_password_failures
-      admin_ui: {width: 200}
+      admin_ui: {width: 141}
       type: number
     - name: confirmed_email
       admin_ui: {width: 200}
@@ -133,10 +133,16 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: api_key
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: last_hs_sync
-      admin_ui: {order: 2, width: 200}
+      admin_ui: {width: 200}
+      type: string
+    - name: api_key_expiration
+      admin_ui: {width: 200}
+      type: string
+    - name: api_key_creation
+      admin_ui: {width: 200}
       type: string
   hs_users:
     title: hs_users
@@ -157,6 +163,7 @@ db_schema:
     client: none
     server: full
     columns:
+    - {name: givenName, admin_ui: null, type: string}
     - name: id
       admin_ui: {width: 200}
       type: number

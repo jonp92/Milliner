@@ -79,6 +79,11 @@ class Home(HomeTemplate):
       self.item = anvil.server.call('get_machine_table').search(online=True)
       self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
 
+  def button_test_function_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    alert(anvil.server.call('get_api_key_info', self.url, self.api_key))
+
+
 
 
 
