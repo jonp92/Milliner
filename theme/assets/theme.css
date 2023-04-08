@@ -138,7 +138,7 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 
 .checkbox input, .radio input {
   -webkit-appearance: none;
-  appearance: none;
+  appearance: checkbox;
   width: 15px;
   height: 15px;
   border-radius: 1px;

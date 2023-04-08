@@ -39,7 +39,10 @@ class UserRow(UserRowTemplate):
 
   def button_preauth_keys_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(PreAuth(self.label_name.text), large=True)
+    form = get_open_form()
+    form.column_panel_home.clear()
+    form.column_panel_home.add_component(PreAuth(self.label_name.text), full_width_row=True)
+    #alert(PreAuth(self.label_name.text), large=True)
 
 
 
