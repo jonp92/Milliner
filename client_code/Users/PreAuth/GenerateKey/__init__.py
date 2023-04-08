@@ -21,12 +21,12 @@ class GenerateKey(GenerateKeyTemplate):
     else:
       self.item['is_ephemeral'] = 'False'
 
-  def check_box_reusable_change(self, **event_args):
-    """This method is called when this checkbox is checked or unchecked"""
-    if self.check_box_reusable.checked:
-      self.item['is_reusable'] = 'True'
-    else:
-      self.item['is_reusable'] = 'False'
+  #def check_box_reusable_change(self, **event_args):
+   # """This method is called when this checkbox is checked or unchecked"""
+    #if self.check_box_reusable.checked:
+      #self.item['is_reusable'] = 'True'
+    #else:
+      #self.item['is_reusable'] = 'False'
 
 
 

@@ -365,10 +365,8 @@ def get_preauth_keys(url, api_key, user_name):
 @anvil.server.callable  
 # Add a preauth key to the user "user_name" given the booleans "ephemeral" 
 # and "reusable" with the expiration date "date" contained in the JSON payload "data"
-def add_preauth_key(url, api_key, data):
+def add_preauth_key(url, api_key, data): 
     print("Adding PreAuth Key:  %s", str(data))
-    data = '{"user": "jonathan", "resuable": "False", "ephemeral": "False", "date": "2023-04-30T17:23:00Z"}'
-    print(data)
     response = requests.post(
         str(url)+"/api/v1/preauthkey",
         data=data,

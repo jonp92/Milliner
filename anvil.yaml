@@ -19,7 +19,7 @@ scheduled_tasks:
   job_id: FAGDAFJR
 services:
 - source: /runtime/services/tables.yml
-  client_config: {enable_v2: false}
+  client_config: {enable_v2: true}
   server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,

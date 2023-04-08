@@ -40,4 +40,10 @@ class Users(UsersTemplate):
     self.button_add_user.visible = False
     self.column_panel_new_user.visible = True
 
+  def button_cancel_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.column_panel_new_user.visible = False
+    self.button_add_user.visible = True
+
+
 

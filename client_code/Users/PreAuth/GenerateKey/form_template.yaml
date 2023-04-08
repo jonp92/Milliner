@@ -63,10 +63,11 @@ components:
       foreground: '', allow_indeterminate: false, visible: true, text: Ephemeral,
       font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
       background: '', bold: false, checked: false, underline: false}
-    name: check_box_ephmeral
+    name: check_box_ephemeral
     layout_properties: {row: RKWCJY, width_xs: 1, col_xs: 1, width: 136.667}
-    data_bindings: []
-    event_bindings: {change: check_box_ephmeral_change}
+    data_bindings:
+    - {property: checked, code: 'self.item[''is_ephemeral'']', writeback: true}
+    event_bindings: {}
   - type: CheckBox
     properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
       foreground: '', allow_indeterminate: false, visible: true, text: Reusable, font_size: null,
@@ -74,6 +75,7 @@ components:
       bold: false, checked: false, underline: false}
     name: check_box_reusable
     layout_properties: {row: RKWCJY, width_xs: 1, col_xs: 5, width: 136.667}
-    data_bindings: []
-    event_bindings: {change: check_box_reusable_change}
+    data_bindings:
+    - {property: checked, code: 'self.item[''is_reusable'']', writeback: true}
+    event_bindings: {}
 is_package: true
