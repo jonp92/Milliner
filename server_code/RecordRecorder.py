@@ -10,11 +10,11 @@ import json
 @anvil.server.callable
 @anvil.server.background_task
 def record_machines():
-  fresh_install = anvil.server.call('check_users_table')
-  if fresh_install:
+  fresh_install = anvil.server.call('check_fresh_install')
+  if not fresh_install['settings_exists']:
     self.url = ''
     self.api_key = ''
-  else:
+  elif fresh_install['settings_exists']:
     self.url = [r['url'] for r in app_tables.settings.search()][0]
     self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   import datetime
