@@ -20,7 +20,7 @@ scheduled_tasks:
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
-  server_config: {auto_create_missing_columns: true}
+  server_config: {auto_create_missing_columns: false}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,
     confirm_email: false, allow_remember_me: true, remember_me_days: 30}
@@ -67,24 +67,15 @@ db_schema:
     - name: createdAt
       admin_ui: {}
       type: string
-    - name: invalidTags
-      admin_ui: {}
-      type: unresolvedArray
     - name: lastSuccessfulUpdate
       admin_ui: {}
       type: string
-    - name: forcedTags
-      admin_ui: {}
-      type: unresolvedArray
     - name: nodeKey
       admin_ui: {}
       type: string
     - name: lastSeen
       admin_ui: {}
       type: string
-    - name: preAuthKey
-      admin_ui: {}
-      type: unresolved
     - name: user
       admin_ui: {}
       type: simpleObject
@@ -97,9 +88,18 @@ db_schema:
     - name: online
       admin_ui: {}
       type: bool
+    - name: invalidTags
+      admin_ui: {order: 17, width: 200}
+      type: simpleObject
     - name: validTags
-      admin_ui: {}
-      type: unresolvedArray
+      admin_ui: {order: 17, width: 200}
+      type: simpleObject
+    - name: forcedTags
+      admin_ui: {order: 17, width: 200}
+      type: simpleObject
+    - name: preAuthKey
+      admin_ui: {order: 17, width: 200}
+      type: string
   users:
     title: Users
     client: none
