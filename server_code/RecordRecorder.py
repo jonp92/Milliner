@@ -5,18 +5,18 @@ from anvil.tables import app_tables
 import anvil.server
 import json
 
-fresh_install = anvil.server.call('check_users_table')
-if fresh_install:
-  self.url = ''
-  self.api_key = ''
-  self.label_sync_time.text = 'Never Synced'
-else:
-  self.url = [r['url'] for r in app_tables.settings.search()][0]
-  self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+
 
 @anvil.server.callable
 @anvil.server.background_task
 def record_machines():
+  fresh_install = anvil.server.call('check_users_table')
+  if fresh_install:
+    self.url = ''
+    self.api_key = ''
+  else:
+    self.url = [r['url'] for r in app_tables.settings.search()][0]
+    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   import datetime
   now = datetime.datetime.now()
   date_string = now.strftime("%Y-%m-%d")

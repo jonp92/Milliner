@@ -17,15 +17,18 @@ def get_routes_tables():
   return app_tables.routes.client_writable_cascade()
 
 @anvil.server.callable
-def check_users_table():
-  users = [r['email'] for r in app_tables.users.search()]
-  print(users)
-  if users:
-    return False
-  else:
+def check_fresh_install():
+  if len(app_tables.users.search()) == 0:
     app_tables.users.add_row(confirmed_email=True, email='admin@milliner.login', enabled=True, password_hash='$2y$10$QoAnY4j687bSu/DI/C4n7.Wm2kLIT8fIyCid8406DvqYuBJayaFUK')
-    return True
-
+    created_user = True
+  else:
+    created_user = False
+  if len(app_tables.settings.search()) == 0:
+    settings_exists = False
+  else:
+    settings_exists = True
+  return {'created_user': created_user, 'settings_exists': settings_exists}
+  
 @anvil.server.callable
 def get_app_users_table():
   return app_tables.users.client_writable_cascade()

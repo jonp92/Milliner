@@ -13,12 +13,12 @@ from ..Settings import Settings
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.version = 'v.0.1.0'
-    fresh_install = anvil.server.call('check_users_table')
-    if fresh_install:
+    fresh_install = anvil.server.call('check_fresh_install')
+    if not fresh_install['settings_exists']:
       self.url = ''
       self.api_key = ''
       self.label_sync_time.text = 'Never Synced'
-    else:
+    elif fresh_install['settings_exists']:
       self.url = [r['url'] for r in app_tables.settings.search()][0]
       self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
       self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]

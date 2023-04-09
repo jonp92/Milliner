@@ -149,6 +149,9 @@ db_schema:
     - name: api_key_creation
       admin_ui: {width: 200}
       type: string
+    - name: is_fresh_install
+      admin_ui: {order: 5, width: 200}
+      type: bool
   hs_users:
     title: hs_users
     client: none
