@@ -24,7 +24,6 @@ class Home(HomeTemplate):
       self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
       self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
     self.item = anvil.server.call('get_machine_table').search(online=True)
-    self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
