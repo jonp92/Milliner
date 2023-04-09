@@ -13,7 +13,10 @@ from .. import Startup
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
-    self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
+    if app_tables.settings.get():
+      self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
+    else:
+      self.label_sync_time.text = 'Never Synced'
     self.item = anvil.server.call('get_machine_table').search(online=True)
     self.version = Startup.version
     self.url = Startup.url
