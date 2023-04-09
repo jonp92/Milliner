@@ -11,9 +11,9 @@ components:
   layout_properties: {grid_position: 'ZGVNOS,YOROMF', full_width_row: true}
 - type: Label
   properties: {role: title, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: Users, font_size: null, font: '', spacing_above: none, icon_align: left,
-    spacing_below: none, italic: false, background: '', bold: false, underline: true,
-    icon: 'fa:users'}
+    visible: true, text: Headscale Users, font_size: null, font: '', spacing_above: none,
+    icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+    underline: true, icon: 'fa:users'}
   name: label_title
   layout_properties: {grid_position: 'KJKRCR,AFPXXY'}
 - type: DataGrid
