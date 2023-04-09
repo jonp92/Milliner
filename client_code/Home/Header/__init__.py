@@ -9,7 +9,11 @@ from anvil.tables import app_tables
 class Header(HeaderTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.link_user.text = anvil.users.get_user()['email']
+    self.user = anvil.users.get_user()
+    if self.user:
+      self.link_user.text = self.user['email']
+    else:
+      self.link_user.text = 'None'
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
