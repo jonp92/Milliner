@@ -24,7 +24,10 @@ class Header(HeaderTemplate):
 
   def button_sign_out_click(self, **event_args):
     """This method is called when the button is clicked"""
+    get_open_form().clear()
     anvil.users.logout()
     open_form('Home')
+    
+    
 
 
