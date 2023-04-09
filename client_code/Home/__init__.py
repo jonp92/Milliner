@@ -12,6 +12,7 @@ from ..Settings import Settings
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
+    anvil.users.login_with_form()
     self.version = 'v.0.1.3'
     fresh_install = anvil.server.call('check_fresh_install')
     if not fresh_install['settings_exists']:
@@ -26,10 +27,6 @@ class Home(HomeTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    if not self.user:
-      anvil.users.login_with_form()
-      self.visible = True
-      self.user = anvil.users.get_user()
 
     
     # Any code you write here will run before the form opens.
