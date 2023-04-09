@@ -13,7 +13,7 @@ from ..Settings import Settings
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.version = 'v.0.1.0'
-    fresh_install = anvil.server.call('check_users_table')
+    #fresh_install = anvil.server.call('check_users_table')
     if not anvil.users.get_user():
       self.url = None
       self.api_key = None
