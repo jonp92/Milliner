@@ -24,7 +24,7 @@ components:
       event_bindings: {click: link_user_click}
       components: []
     - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Sign Out, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:sign-out'}
