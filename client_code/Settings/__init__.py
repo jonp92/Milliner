@@ -35,7 +35,10 @@ class Settings(SettingsTemplate):
       
   def button_test_api_click(self, **event_args):
     """This method is called when the button is clicked"""
-    status_returned = anvil.server.call('test_api_key', self.item['url'], self.item['api_key'])
+    try:
+      status_returned = anvil.server.call('test_api_key', self.item['url'], self.item['api_key'])
+    except:
+      raise Exception('No URL has been saved in Settings')
     if status_returned == 200:
       status = f'{status_returned} - Connection Succesful'
     else:
