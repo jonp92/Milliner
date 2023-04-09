@@ -8,8 +8,13 @@ from anvil.tables import app_tables
 
 class Machines(MachinesTemplate):
   def __init__(self, **properties):
-    self.url = [r['url'] for r in app_tables.settings.search()][0]
-    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    fresh_install = anvil.server.call('check_fresh_install')
+    if not fresh_install['settings_exists']:
+      self.url = ''
+      self.api_key = ''
+    elif fresh_install['settings_exists']:
+      self.url = [r['url'] for r in app_tables.settings.search()][0]
+      self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
     self.item = anvil.server.call('get_machine_table')
     self.repeating_panel_machines.set_event_handler('x-refresh', self.refresh_data)
     self.init_components(**properties)
