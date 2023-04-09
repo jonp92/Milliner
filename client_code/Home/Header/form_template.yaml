@@ -31,5 +31,6 @@ components:
       name: button_sign_out
       layout_properties: {row: VTIJMM, width_xs: 3, col_xs: 8, width: 159.328125,
         grid_position: 'ZJLUUA,WEFXQI'}
+      event_bindings: {click: button_sign_out_click}
 is_package: true
 custom_component: true
