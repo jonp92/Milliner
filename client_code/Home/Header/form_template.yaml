@@ -14,8 +14,15 @@ components:
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: false, underline: false, icon: 'fa:user'}
     name: link_user
-    layout_properties: {row: VTIJMM, width_xs: 2, col_xs: 10, width: 136.65625}
+    layout_properties: {row: VTIJMM, width_xs: 2, col_xs: 8, width: 136.65625}
     data_bindings: []
     event_bindings: {click: link_user_click}
+  - type: Button
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Sign Out, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: 'fa:sign-out'}
+    name: button_sign_out
+    layout_properties: {row: VTIJMM, width_xs: 2, col_xs: 10, width: 159.328125}
 is_package: true
 custom_component: true

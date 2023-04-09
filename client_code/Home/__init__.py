@@ -12,7 +12,7 @@ from ..Settings import Settings
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
-    self.version = 'v.0.1.0'
+    self.version = 'v.0.1.3'
     fresh_install = anvil.server.call('check_fresh_install')
     if not fresh_install['settings_exists']:
       self.url = ''
