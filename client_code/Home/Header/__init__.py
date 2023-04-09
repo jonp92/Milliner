@@ -26,8 +26,8 @@ class Header(HeaderTemplate):
     """This method is called when the button is clicked"""
     get_open_form().column_panel_home.clear()
     anvil.users.logout()
+    anvil.users.login_with_form()
     open_form('Home')
-    self.refresh_data_bindings()
     
     
     
