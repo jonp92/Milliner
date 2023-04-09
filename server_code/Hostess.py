@@ -18,8 +18,9 @@ def get_routes_tables():
 
 @anvil.server.callable
 def check_users_table():
-  user = app_tables.users.search()
-  if user:
+  users = [r['email'] for r in app_tables.users.search()]
+  print(users)
+  if users:
     return False
   else:
     app_tables.users.add_row(confirmed_email=True, email='admin@milliner.login', enabled=True, password_hash='$2y$10$QoAnY4j687bSu/DI/C4n7.Wm2kLIT8fIyCid8406DvqYuBJayaFUK')

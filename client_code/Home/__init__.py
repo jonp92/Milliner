@@ -14,7 +14,7 @@ class Home(HomeTemplate):
   def __init__(self, **properties):
     self.version = 'v.0.1.0'
     fresh_install = anvil.server.call('check_users_table')
-    if not anvil.users.get_user():
+    if fresh_install:
       self.url = ''
       self.api_key = ''
       self.label_sync_time.text = 'Never Synced'
@@ -22,7 +22,7 @@ class Home(HomeTemplate):
       self.url = [r['url'] for r in app_tables.settings.search()][0]
       self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
       self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
-      self.item = anvil.server.call('get_machine_table').search(online=True)
+    self.item = anvil.server.call('get_machine_table').search(online=True)
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
