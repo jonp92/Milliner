@@ -5,7 +5,7 @@ from anvil.tables import app_tables
 import anvil.server
 import requests
 from datetime import timedelta, date, datetime
-from dateutil import parser
+from dateutil.parser import parser
 
 ##################################################################
 # Functions related to HEADSCALE and API KEYS
