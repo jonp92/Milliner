@@ -12,11 +12,11 @@ import json
 def record_machines():
   fresh_install = anvil.server.call('check_fresh_install')
   if not fresh_install['settings_exists']:
-    self.url = ''
-    self.api_key = ''
+    url = ''
+    api_key = ''
   elif fresh_install['settings_exists']:
-    self.url = [r['url'] for r in app_tables.settings.search()][0]
-    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    url = [r['url'] for r in app_tables.settings.search()][0]
+    api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   import datetime
   now = datetime.datetime.now()
   date_string = now.strftime("%Y-%m-%d")
@@ -65,8 +65,13 @@ def record_machines():
 @anvil.server.callable
 @anvil.server.background_task
 def record_users():
-  url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+  fresh_install = anvil.server.call('check_fresh_install')
+  if not fresh_install['settings_exists']:
+    url = ''
+    api_key = ''
+  elif fresh_install['settings_exists']:
+    url = [r['url'] for r in app_tables.settings.search()][0]
+    api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data = anvil.server.call('get_users', url, api_key)
   for user in data['users']:
     user_row = app_tables.hs_users.get(id=user['id'])
@@ -78,8 +83,13 @@ def record_users():
 @anvil.server.callable
 @anvil.server.background_task
 def record_routes():
-  url = [r['url'] for r in app_tables.settings.search()][0]
-  api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+  fresh_install = anvil.server.call('check_fresh_install')
+  if not fresh_install['settings_exists']:
+    url = ''
+    api_key = ''
+  elif fresh_install['settings_exists']:
+    url = [r['url'] for r in app_tables.settings.search()][0]
+    api_key = [r['api_key'] for r in app_tables.settings.search()][0]
   data = anvil.server.call('get_routes', url, api_key)
   for route in data['routes']:
     route_row = app_tables.routes.get(id=int(route['id']))
