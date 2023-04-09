@@ -26,13 +26,11 @@ class Home(HomeTemplate):
     self.user = anvil.users.get_user()
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.visible = False
-    if self.user:
-      self.visible = True
-    else:
+    if not self.user:
       anvil.users.login_with_form()
       self.visible = True
       self.user = anvil.users.get_user()
+
     
     # Any code you write here will run before the form opens.
 
