@@ -9,7 +9,7 @@ components:
   layout_properties: {grid_position: 'YPTHJP,ELKNLH', full_width_row: true}
   components:
   - type: ColumnPanel
-    properties: {col_widths: '{"HBLRUA":35,"WEFXQI":25}'}
+    properties: {col_widths: '{"HBLRUA":30,"WEFXQI":30}'}
     name: column_panel_1
     layout_properties: {row: VTIJMM, width_xs: 4, col_xs: 8}
     components:
@@ -24,7 +24,7 @@ components:
       event_bindings: {click: link_user_click}
       components: []
     - type: Button
-      properties: {role: filled, align: right, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Sign Out, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: 'fa:sign-out'}
