@@ -15,8 +15,8 @@ class Home(HomeTemplate):
     self.version = 'v.0.1.0'
     fresh_install = anvil.server.call('check_users_table')
     if not anvil.users.get_user():
-      self.url = ''
-      self.api_key = ''
+      self.url = None
+      self.api_key = None
       self.label_sync_time.text = 'Never Synced'
     else:
       self.url = [r['url'] for r in app_tables.settings.search()][0]
