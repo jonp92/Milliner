@@ -9,21 +9,13 @@ from ..Machines import Machines
 from ..Users import Users
 from ..Routes import Routes
 from ..Settings import Settings
+#from .. import Startup
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
-    anvil.users.login_with_form()
-    self.version = 'v.0.1.3'
-    fresh_install = anvil.server.call('check_fresh_install')
-    if not fresh_install['settings_exists']:
-      self.url = ''
-      self.api_key = ''
-      self.label_sync_time.text = 'Never Synced'
-    elif fresh_install['settings_exists']:
-      self.url = [r['url'] for r in app_tables.settings.search()][0]
-      self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
-      self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
+    self.label_sync_time.text = None
     self.item = anvil.server.call('get_machine_table').search(online=True)
+    self.version = 'v1'
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

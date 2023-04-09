@@ -17,6 +17,7 @@ def get_routes_tables():
   return app_tables.routes.client_writable_cascade()
 
 @anvil.server.callable
+@tables.in_transaction
 def check_fresh_install():
   if len(app_tables.users.search()) == 0:
     app_tables.users.add_row(confirmed_email=True, email='admin@milliner.login', enabled=True, password_hash='$2y$10$QoAnY4j687bSu/DI/C4n7.Wm2kLIT8fIyCid8406DvqYuBJayaFUK')

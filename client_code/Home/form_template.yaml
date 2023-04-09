@@ -168,6 +168,5 @@ components:
           icon: ''}
         name: label_version
         layout_properties: {grid_position: 'ZYXVJI,VDCHIU'}
-        data_bindings:
-        - {property: text, code: self.version}
+        data_bindings: []
     event_bindings: {click: link_settings_click}

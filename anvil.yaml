@@ -25,7 +25,7 @@ services:
   client_config: {allow_signup: false, enable_automatically: true, use_email: true,
     confirm_email: false, allow_remember_me: true, remember_me_days: 30}
   server_config: {user_table: users}
-startup: {type: form, module: Home}
+startup: {type: module, module: Startup}
 package_name: Milliner
 allow_embedding: false
 name: Milliner
