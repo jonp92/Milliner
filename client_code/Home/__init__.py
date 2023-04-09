@@ -9,13 +9,15 @@ from ..Machines import Machines
 from ..Users import Users
 from ..Routes import Routes
 from ..Settings import Settings
-#from .. import Startup
+from .. import Startup
 
 class Home(HomeTemplate):
   def __init__(self, **properties):
-    self.label_sync_time.text = None
+    self.label_sync_time.text = [r['last_hs_sync'] for r in app_tables.settings.search()][0]
     self.item = anvil.server.call('get_machine_table').search(online=True)
-    self.version = 'v1'
+    self.version = Startup.version
+    self.url = Startup.url
+    self.api_key = Startup.api_key
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
