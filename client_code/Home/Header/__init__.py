@@ -27,7 +27,7 @@ class Header(HeaderTemplate):
     get_open_form().column_panel_home.clear()
     anvil.users.logout()
     open_form('Home')
-    self.init_components()
+    self.refresh_data_bindings()
     
     
     
