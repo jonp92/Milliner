@@ -5,11 +5,12 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ... import Startup
 
 class Header(HeaderTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.user = anvil.users.get_user()
+    self.user = Startup.user
     if self.user:
       self.link_user.text = self.user['email']
     else:

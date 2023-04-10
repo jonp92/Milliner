@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ... import Startup
 
 class RouteRow(RouteRowTemplate):
   def __init__(self, **properties):
@@ -15,8 +16,8 @@ class RouteRow(RouteRowTemplate):
 
   def check_box_enabled_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
-    self.url = [r['url'] for r in app_tables.settings.search()][0]
-    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    self.url = Startup.url
+    self.api_key = Startup.api_key
     anvil.server.call('update_route', self.url, self.api_key, self.item['id'], self.check_box_enabled.checked)
     anvil.server.call('record_routes')
     self.parent.raise_event('x-refresh')

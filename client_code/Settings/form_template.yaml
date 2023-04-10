@@ -36,7 +36,7 @@ components:
       name: text_box_url
       layout_properties: {row: QYHVSU, width_xs: 9, col_xs: 2}
       data_bindings:
-      - {property: text, code: 'self.item[''url'']', writeback: true}
+      - {property: text, code: self.url, writeback: true}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Headscale API Key:', font_size: null, font: '', spacing_above: small,
@@ -49,7 +49,7 @@ components:
       name: text_box_api_key
       layout_properties: {row: FGOVGD, width_xs: 9, col_xs: 2}
       data_bindings:
-      - {property: text, code: 'self.item[''api_key'']', writeback: true}
+      - {property: text, code: self.api_key, writeback: true}
     - type: Button
       properties: {role: filled, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Renew API Key, font_size: null, font: '',

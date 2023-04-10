@@ -5,12 +5,13 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ... import Startup
 
 class MachineDetail(MachineDetailTemplate):
   def __init__(self, id, machine_row, **properties):
     # Set Form properties and Data Bindings.
-    self.url = [r['url'] for r in app_tables.settings.search()][0]
-    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    self.url = Startup.url
+    self.api_key = Startup.api_key
     self.item = anvil.server.call('get_machine_routes', self.url, self.api_key, id)
     self.machine = machine_row
     self.init_components(**properties)

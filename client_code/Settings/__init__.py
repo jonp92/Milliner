@@ -6,18 +6,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .AppUsers import AppUsers
+from .. import Startup
 
 class Settings(SettingsTemplate):
   def __init__(self, **properties):
     self.users = anvil.server.call('get_app_users_table').search()
-    if app_tables.settings.get() == None:
-      self.item['url'] = ''
-      self.item['api_key'] = ''
-      self.text_box_url.placeholder = 'Insert your Headscale Server URL'
-      self.text_box_api_key.placeholder = 'Insert your Headscale Server API Key'
-    else:
-      self.item['url'] = [r['url'] for r in app_tables.settings.search()][0]
-      self.item['api_key'] = [r['api_key'] for r in app_tables.settings.search()][0]
+    self.url = Startup.url
+    self.api_key = Startup.api_key
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
@@ -26,17 +21,17 @@ class Settings(SettingsTemplate):
   def button_save_click(self, **event_args):
     """This method is called when the button is clicked"""
     if app_tables.settings.get() == None:
-      app_tables.settings.add_row(url=self.item['url'], api_key=self.item['api_key'])
+      app_tables.settings.add_row(url=self.url, api_key=self.api_key)
       self.refresh_data_bindings()
     else:
       settings_row = app_tables.settings.get()
-      settings_row.update(url=self.item['url'], api_key=self.item['api_key'])
+      settings_row.update(url=self.url, api_key=self.api_key)
       self.refresh_data_bindings()
       
   def button_test_api_click(self, **event_args):
     """This method is called when the button is clicked"""
     try:
-      status_returned = anvil.server.call('test_api_key', self.item['url'], self.item['api_key'])
+      status_returned = anvil.server.call('test_api_key', url=self.url, api_key=self.api_key)
     except:
       raise Exception('No URL has been saved in Settings')
     if status_returned == 200:
@@ -52,10 +47,10 @@ class Settings(SettingsTemplate):
 
   def button_renew_api_key_click(self, **event_args):
     """This method is called when the button is clicked"""
-    result, response, new_api_key = anvil.server.call('renew_api_key', self.item['url'], self.item['api_key'])
+    result, response, new_api_key = anvil.server.call('renew_api_key', url=self.url, api_key=self.api_key)
     if result == True and response == 'Key updated and validated':
       anvil.server.call('update_api_key_settings', new_api_key)
-      self.item['api_key'] = [r['api_key'] for r in app_tables.settings.search()][0]
+      self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
       Notification(response, timeout=3).show()
     elif result == True:
       Notification(response, timeout=3).show()

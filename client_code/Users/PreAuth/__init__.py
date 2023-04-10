@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 from .GenerateKey import GenerateKey
 import json
 import datetime
+from ... import Startup
 
 class PreAuth(PreAuthTemplate):
   def __init__(self, user_name, **properties):
@@ -17,8 +18,8 @@ class PreAuth(PreAuthTemplate):
     self.item['is_ephemeral'] = False
     self.item['expiration_date'] = '7'
     self.user_name = user_name
-    self.url = [r['url'] for r in app_tables.settings.search()][0]
-    self.api_key = [r['api_key'] for r in app_tables.settings.search()][0]
+    self.url = Startup.url
+    self.api_key = Startup.api_key
     self.response = anvil.server.call('get_preauth_keys', self.url, self.api_key, user_name)
     self.repeating_panel_preauth_keys.items = self.response['preAuthKeys']
     self.init_components(**properties)
