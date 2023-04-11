@@ -18,6 +18,8 @@ def fresh_install():
 version = 'v.0.1.3'
 url, api_key = fresh_install()
 user = anvil.users.get_user()
+def error_handler(err):
+  alert(str(err), title="An error has occurred", large=True, dismissible=False)
 
 def startup():
   user = anvil.users.login_with_form()
