@@ -99,7 +99,7 @@ db_schema:
       type: simpleObject
     - name: preAuthKey
       admin_ui: {order: 17, width: 200}
-      type: string
+      type: simpleObject
   users:
     title: Users
     client: none
