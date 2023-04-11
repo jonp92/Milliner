@@ -3,7 +3,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from anvil import open_form
+from anvil import *
 
 def fresh_install():
   fresh_install = anvil.server.call('check_fresh_install')
@@ -15,11 +15,13 @@ def fresh_install():
       url = [r['url'] for r in app_tables.settings.search()][0]
       api_key = [r['api_key'] for r in app_tables.settings.search()][0]
       return url, api_key
+    
+def error_handler(err):
+  alert(str(err), title="An error has occurred", large=True, dismissible=False)    
 version = 'v.0.1.3'
 url, api_key = fresh_install()
 user = anvil.users.get_user()
-def error_handler(err):
-  alert(str(err), title="An error has occurred", large=True, dismissible=False)
+set_default_error_handling(error_handler)
 
 def startup():
   user = anvil.users.login_with_form()

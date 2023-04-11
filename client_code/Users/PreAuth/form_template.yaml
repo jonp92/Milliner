@@ -44,7 +44,7 @@ components:
       col_xs: 0, width: 1106}
     components:
     - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Users.PreAuth.RowTemplate2}
+      properties: {spacing_above: none, spacing_below: none, item_template: Users.PreAuth.PreAuthKeyRow}
       name: repeating_panel_preauth_keys
       layout_properties: {}
     - type: GridPanel
