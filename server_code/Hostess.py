@@ -1,6 +1,4 @@
-import anvil.users
 import anvil.tables as tables
-import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
@@ -41,23 +39,13 @@ def update_app_user(email, item, pw_update, password):
     appuser_row.update(email=email)
   elif pw_update == True:
     import bcrypt
-    # converting password to array of bytes
-    bytes = password.encode('utf-8')
-    # generating the salt
-    salt = bcrypt.gensalt()
-    # Hashing the password
-    password_hash = bcrypt.hashpw(bytes, salt)
+    password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     appuser_row.update(email=email, password_hash=password_hash.decode('utf-8'))
 
 @anvil.server.callable
 def add_appuser(email, enabled, confirmed_email, password):
   import bcrypt
-  # converting password to array of bytes
-  bytes = password.encode('utf-8')
-  # generating the salt
-  salt = bcrypt.gensalt()
-  # Hashing the password
-  password_hash = bcrypt.hashpw(bytes, salt)
+  password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
   app_tables.users.add_row(email=email, enabled=enabled, confirmed_email=confirmed_email, password_hash=password_hash.decode('utf-8'))
 
 @anvil.server.callable
