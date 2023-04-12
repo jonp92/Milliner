@@ -25,7 +25,7 @@ class Settings(SettingsTemplate):
       self.refresh_data_bindings()
     else:
       settings_row = app_tables.settings.get()
-      settings_row.update(url=self.url, api_key=self.api_key)
+      settings_row.update(url=self.text_box_url, api_key=self.text_box_api_key)
       self.refresh_data_bindings()
       
   def button_test_api_click(self, **event_args):
