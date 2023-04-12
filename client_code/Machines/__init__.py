@@ -29,7 +29,7 @@ class Machines(MachinesTemplate):
 
   def button_save_new_machine_click(self, **event_args):
     """This method is called when the button is clicked"""
-    alert(anvil.server.call('register_machine', self.url, self.api_key, self.text_box_nodekey.text, self.text_box_nodekey.selected_value))
+    alert(anvil.server.call('register_machine', self.url, self.api_key, self.text_box_nodekey.text, self.drop_down_user.selected_value))
     self.refresh_data_bindings()
 
   def button_cancel_click(self, **event_args):
