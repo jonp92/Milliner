@@ -18,7 +18,7 @@ def record_machines():
   date_string = now.strftime("%Y-%m-%d")
   time_string =now.strftime("%H:%M:%S")
   data=anvil.server.call('get_machines', url, api_key)
-  for machine in data['machines']:
+  for machine in data['nodes']:
     machine_row = app_tables.machines.get(id=machine['id'])
     if machine_row:
       machine_row.update(name=machine['name'], id=machine['id'], ipAddr=machine['ipAddresses'], 
@@ -90,6 +90,6 @@ def record_routes():
   for route in data['routes']:
     route_row = app_tables.routes.get(id=int(route['id']))
     if route_row:
-      route_row.update(id=int(route['id']), machineName=route['machine']['name'], givenName=route['machine']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
+      route_row.update(id=int(route['id']), machineName=route['node']['name'], givenName=route['node']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['node']['ipAddresses'])
     else:
-      app_tables.routes.add_row(id=int(route['id']), machineName=route['machine']['name'], givenName=route['machine']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['machine']['ipAddresses'])
+      app_tables.routes.add_row(id=int(route['id']), machineName=route['node']['name'], givenName=route['node']['givenName'], prefix=route['prefix'], enabled=route['enabled'], machineIPs=route['node']['ipAddresses'])

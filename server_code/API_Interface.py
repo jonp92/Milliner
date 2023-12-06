@@ -121,7 +121,7 @@ def get_api_key_info(url, api_key):
 def register_machine(url, api_key, machine_key, user):
     print("Registering machine %s to user %s", str(machine_key), str(user))
     response = requests.post(
-        str(url)+"/api/v1/machine/register?user="+str(user)+"&key="+str(machine_key),
+        str(url)+"/api/v1/node/register?user="+str(user)+"&key="+str(machine_key),
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -135,7 +135,7 @@ def register_machine(url, api_key, machine_key, user):
 def set_machine_tags(url, api_key, machine_id, tags_list):
     print("Setting machine_id %s tag %s", str(machine_id), str(tags_list))
     response = requests.post(
-        str(url)+"/api/v1/machine/"+str(machine_id)+"/tags",
+        str(url)+"/api/v1/node/"+str(machine_id)+"/tags",
         data=tags_list,
         headers={
             'Accept': 'application/json',
@@ -150,7 +150,7 @@ def set_machine_tags(url, api_key, machine_id, tags_list):
 def move_user(url, api_key, machine_id, new_user):
     print("Moving machine_id %s to user %s", str(machine_id), str(new_user))
     response = requests.post(
-        str(url)+"/api/v1/machine/"+str(machine_id)+"/user?user="+str(new_user),
+        str(url)+"/api/v1/node/"+str(machine_id)+"/user?user="+str(new_user),
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -184,7 +184,7 @@ def update_route(url, api_key, route_id, current_state):
 # Get all machines on the Headscale network
 def get_machines(url, api_key):
     response = requests.get(
-        str(url)+"/api/v1/machine",
+        str(url)+"/api/v1/node",
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -197,7 +197,7 @@ def get_machines(url, api_key):
 def get_machine_info(url, api_key, machine_id):
     print("Getting information for machine ID %s", str(machine_id))
     response = requests.get(
-        str(url)+"/api/v1/machine/"+str(machine_id),
+        str(url)+"/api/v1/node/"+str(machine_id),
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -210,7 +210,7 @@ def get_machine_info(url, api_key, machine_id):
 def delete_machine(url, api_key, machine_id):
     print("Deleting machine %s", str(machine_id))
     response = requests.delete(
-        str(url)+"/api/v1/machine/"+str(machine_id),
+        str(url)+"/api/v1/node/"+str(machine_id),
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -228,7 +228,7 @@ def delete_machine(url, api_key, machine_id):
 def rename_machine(url, api_key, machine_id, new_name):
     print("Renaming machine %s", str(machine_id))
     response = requests.post(
-        str(url)+"/api/v1/machine/"+str(machine_id)+"/rename/"+str(new_name),
+        str(url)+"/api/v1/node/"+str(machine_id)+"/rename/"+str(new_name),
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
@@ -246,7 +246,7 @@ def rename_machine(url, api_key, machine_id, new_name):
 def get_machine_routes(url, api_key, machine_id):
     print("Getting routes for machine %s", str(machine_id))
     response = requests.get(
-        str(url)+"/api/v1/machine/"+str(machine_id)+"/routes",
+        str(url)+"/api/v1/node/"+str(machine_id)+"/routes",
         headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer '+str(api_key)
