@@ -18,7 +18,8 @@ def fresh_install():
     
 def error_handler(err):
   alert(str(err), title="An error has occurred", large=True, dismissible=False)    
-version = 'v.0.1.3'
+# 0.1.4 - Headscale API updated machines to nodes, basic API re-write completed.
+version = 'v.0.1.4'
 url, api_key = fresh_install()
 user = anvil.users.get_user()
 set_default_error_handling(error_handler)
